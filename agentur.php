@@ -16,10 +16,17 @@ include '_header.php';
           <p>Wir kombinieren Erfahrung aus Fotografie, visueller Kommunikation und Digitaltechnik mit den neuesten KI-Tools, um moderne, wirkungsvolle und hochwertige Bildwelten zu kreieren – für Unternehmen, Marken und Projekte, die visuell herausstechen möchten.</p>
           <p class="hero__cta">Setzen Sie sich mit uns in Verbindung für ein kostenloses Erstgespräch.</p>
         </div>
-        <div class="about__portrait">
-          <img loading="lazy" src="images/bruno-birkhofer-square.jpg" alt="Bruno Birkhofer – Geschäftsführer">
-          <h3>Bruno Birkhofer</h3>
-          <p>Geschäftsführer</p>
+        <div class="about__team">
+          <div class="about__portrait">
+            <img loading="lazy" src="images/bruno-birkhofer-square.jpg" alt="Bruno Birkhofer – Geschäftsführer">
+            <h3>Bruno Birkhofer</h3>
+            <p>Geschäftsführer</p>
+          </div>
+          <div class="about__portrait">
+            <img loading="lazy" src="images/jasmin-gottstein.svg" alt="Jasmin Gottstein – Marketing">
+            <h3>Jasmin Gottstein</h3>
+            <p>Marketing</p>
+          </div>
         </div>
       </div>
     </div>

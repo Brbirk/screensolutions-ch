@@ -1207,6 +1207,12 @@ p {
   line-height: 1.8;
 }
 
+.about__team {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .about__portrait {
   text-align: center;
 }
