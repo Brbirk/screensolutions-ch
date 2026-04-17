@@ -1,0 +1,281 @@
+<?php
+require_once 'config.php';
+requireLogin();
+
+$editId = isset($_GET['edit']) ? (int)$_GET['edit'] : 0;
+$isNew = isset($_GET['new']);
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>screensolutions Admin - Blog</title>
+<link rel="stylesheet" href="admin-style.css">
+<style>
+.blog-admin { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.page-header h1 { color: #fff; margin: 0; }
+
+/* Article list */
+.article-list { display: flex; flex-direction: column; gap: 1rem; }
+.article-item { background: rgba(255,255,255,0.05); border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.article-item__info { flex: 1; }
+.article-item__title { color: #fff; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+.article-item__meta { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+.article-item__status { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-left: 0.5rem; }
+.article-item__status--published { background: rgba(0,200,100,0.2); color: #00c864; }
+.article-item__status--draft { background: rgba(255,200,0,0.2); color: #ffc800; }
+.article-item__actions { display: flex; gap: 0.5rem; }
+.btn-sm { padding: 0.4rem 0.8rem; font-size: 0.85rem; border-radius: 6px; border: none; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn-edit { background: rgba(255,255,255,0.1); color: #fff; }
+.btn-edit:hover { background: rgba(255,255,255,0.2); }
+.btn-delete { background: rgba(255,50,50,0.15); color: #ff5050; }
+.btn-delete:hover { background: rgba(255,50,50,0.3); }
+.btn-view { background: rgba(100,150,255,0.15); color: #6496ff; }
+.btn-view:hover { background: rgba(100,150,255,0.3); }
+
+/* Editor form */
+.editor-form { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 2rem; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500; }
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select { width: 100%; padding: 0.7rem 1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: #fff; font-size: 0.95rem; font-family: inherit; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #ff4d6d; background: rgba(255,255,255,0.12); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-group textarea.content-editor { min-height: 300px; font-family: monospace; font-size: 0.9rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.form-actions { display: flex; gap: 1rem; margin-top: 2rem; }
+.btn-save { background: #ff4d6d; color: #fff; border: none; padding: 0.7rem 2rem; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; }
+.btn-save:hover { background: #e8435f; }
+.btn-cancel { background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 0.7rem 1.5rem; border-radius: 8px; font-size: 1rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+.btn-cancel:hover { background: rgba(255,255,255,0.2); }
+.toast { position: fixed; top: 1rem; right: 1rem; background: #1b8a4a; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; display: none; z-index: 1000; font-weight: 500; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.toast.error { background: #c0392b; }
+.empty-state { text-align: center; padding: 4rem 2rem; color: rgba(255,255,255,0.5); }
+.empty-state p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<nav class="navbar">
+        <div class="navbar__brand">
+            <img src="../images/logo-screensolutions-white-ki.png" alt="screensolutions" class="navbar__logo">
+            <span class="navbar__title">Admin</span>
+        </div>
+        <div class="navbar__menu">
+            <a href="dashboard.php" class="navbar__link navbar__link">🏠 Dashboard</a>
+            <a href="blog.php" class="navbar__link navbar__link--active">Blog</a>
+        <a href="files.php" class="navbar__link">📁 Dateien</a>
+            <a href="files.php?dir=images" class="navbar__link">🖼 Bilder</a>
+            <a href="settings.php" class="navbar__link">⚙️ Einstellungen</a>
+            <a href="../index.html" class="navbar__link" target="_blank">🌐 Website</a>
+            <a href="logout.php" class="navbar__link navbar__link--logout">⏻ Logout</a>
+        </div>
+    </nav>
+
+<div class="blog-admin">
+    <div id="toast" class="toast"></div>
+    
+    <!-- LIST VIEW -->
+    <div id="list-view">
+        <div class="page-header">
+            <h1>Blog-Artikel</h1>
+            <a href="?new" class="btn btn--primary">+ Neuer Artikel</a>
+        </div>
+        <div id="article-list" class="article-list">
+            <div class="empty-state"><p>Artikel werden geladen...</p></div>
+        </div>
+    </div>
+    
+    <!-- EDITOR VIEW -->
+    <div id="editor-view" style="display:none;">
+        <div class="page-header">
+            <h1 id="editor-title">Neuer Artikel</h1>
+            <a href="blog.php" class="btn-cancel">Abbrechen</a>
+        </div>
+        <div class="editor-form">
+            <input type="hidden" id="article-id" value="0">
+            <div class="form-group">
+                <label>Titel</label>
+                <input type="text" id="field-title" placeholder="Titel des Artikels">
+            </div>
+            <div class="form-group">
+                <label>Kurztext (Teaser)</label>
+                <textarea id="field-excerpt" placeholder="Kurze Zusammenfassung fuer die Uebersicht (2-3 Saetze)"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Inhalt (HTML)</label>
+                <textarea id="field-content" class="content-editor" placeholder="<p>Artikel-Inhalt hier...</p>"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Bild-Pfad (optional)</label>
+                    <input type="text" id="field-image" placeholder="z.B. images/blog/mein-bild.jpg">
+                </div>
+                <div class="form-group">
+                    <label>Autor</label>
+                    <input type="text" id="field-author" value="Bruno Birkhofer">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Datum</label>
+                    <input type="date" id="field-date">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="field-published">
+                        <option value="true">Veroeffentlicht</option>
+                        <option value="false">Entwurf</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn-save" onclick="saveArticle()">Speichern</button>
+                <a href="blog.php" class="btn-cancel">Abbrechen</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const API = 'blog-api.php';
+
+function showToast(msg, isError) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast' + (isError ? ' error' : '');
+    t.style.display = 'block';
+    setTimeout(() => t.style.display = 'none', 3000);
+}
+
+async function loadArticles() {
+    try {
+        const r = await fetch(API + '?action=admin-list');
+        const data = await r.json();
+        const list = document.getElementById('article-list');
+        
+        if (data.articles.length === 0) {
+            list.innerHTML = '<div class="empty-state"><p>Noch keine Artikel vorhanden.</p><a href="?new" class="btn btn--primary">Ersten Artikel erstellen</a></div>';
+            return;
+        }
+        
+        list.innerHTML = data.articles.map(a => {
+            const status = a.published 
+                ? '<span class="article-item__status article-item__status--published">Live</span>'
+                : '<span class="article-item__status article-item__status--draft">Entwurf</span>';
+            const dateStr = new Date(a.date).toLocaleDateString('de-CH');
+            return '<div class="article-item">'
+                + '<div class="article-item__info">'
+                + '<div class="article-item__title">' + a.title + status + '</div>'
+                + '<div class="article-item__meta">' + dateStr + ' &middot; ' + a.author + '</div>'
+                + '</div>'
+                + '<div class="article-item__actions">'
+                + (a.published ? '<a href="/blog/' + a.slug + '" target="_blank" class="btn-sm btn-view">Ansehen</a>' : '')
+                + '<a href="?edit=' + a.id + '" class="btn-sm btn-edit">Bearbeiten</a>'
+                + '<button class="btn-sm btn-delete" onclick="deleteArticle(' + a.id + ',\'' + a.title.replace(/'/g, "\\'") + '\')">Loeschen</button>'
+                + '</div></div>';
+        }).join('');
+    } catch(e) {
+        document.getElementById('article-list').innerHTML = '<div class="empty-state"><p>Fehler beim Laden.</p></div>';
+    }
+}
+
+async function loadArticleForEdit(id) {
+    try {
+        const r = await fetch(API + '?action=admin-get&id=' + id);
+        const data = await r.json();
+        if (data.success) {
+            const a = data.article;
+            document.getElementById('article-id').value = a.id;
+            document.getElementById('field-title').value = a.title;
+            document.getElementById('field-excerpt').value = a.excerpt;
+            document.getElementById('field-content').value = a.content;
+            document.getElementById('field-image').value = a.image || '';
+            document.getElementById('field-author').value = a.author;
+            document.getElementById('field-date').value = a.date;
+            document.getElementById('field-published').value = a.published ? 'true' : 'false';
+            document.getElementById('editor-title').textContent = 'Artikel bearbeiten';
+        }
+    } catch(e) {
+        showToast('Fehler beim Laden des Artikels', true);
+    }
+}
+
+async function saveArticle() {
+    const id = parseInt(document.getElementById('article-id').value);
+    const payload = {
+        title: document.getElementById('field-title').value,
+        excerpt: document.getElementById('field-excerpt').value,
+        content: document.getElementById('field-content').value,
+        image: document.getElementById('field-image').value,
+        author: document.getElementById('field-author').value,
+        date: document.getElementById('field-date').value,
+        published: document.getElementById('field-published').value === 'true'
+    };
+    
+    if (!payload.title.trim()) {
+        showToast('Bitte Titel eingeben', true);
+        return;
+    }
+    
+    const action = id > 0 ? 'update' : 'create';
+    if (id > 0) payload.id = id;
+    
+    try {
+        const r = await fetch(API + '?action=' + action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const data = await r.json();
+        if (data.success) {
+            showToast(data.message);
+            setTimeout(() => window.location.href = 'blog.php', 1000);
+        } else {
+            showToast(data.message || 'Fehler', true);
+        }
+    } catch(e) {
+        showToast('Speichern fehlgeschlagen', true);
+    }
+}
+
+async function deleteArticle(id, title) {
+    if (!confirm('Artikel "' + title + '" wirklich loeschen?')) return;
+    
+    try {
+        const r = await fetch(API + '?action=delete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: id })
+        });
+        const data = await r.json();
+        if (data.success) {
+            showToast('Artikel geloescht');
+            loadArticles();
+        } else {
+            showToast(data.message || 'Fehler', true);
+        }
+    } catch(e) {
+        showToast('Loeschen fehlgeschlagen', true);
+    }
+}
+
+// Init
+const params = new URLSearchParams(window.location.search);
+if (params.has('new') || params.has('edit')) {
+    document.getElementById('list-view').style.display = 'none';
+    document.getElementById('editor-view').style.display = 'block';
+    document.getElementById('field-date').value = new Date().toISOString().split('T')[0];
+    
+    if (params.has('edit')) {
+        loadArticleForEdit(parseInt(params.get('edit')));
+    }
+} else {
+    loadArticles();
+}
+</script>
+</body>
+</html>

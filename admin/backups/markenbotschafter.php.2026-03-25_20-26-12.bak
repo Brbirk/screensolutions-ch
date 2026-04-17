@@ -1,0 +1,80 @@
+<?php
+$pageTitle = 'Markenbotschafter - Virtuelle KI-Models | screensolutions';
+$pageDescription = 'Unsere virtuellen Markenbotschafter: KI-generierte Models für authentische Werbung, Social Media und Kampagnen – ohne Fotoshooting.';
+$pageCanonical = 'https://screensolutions.ch/markenbotschafter';
+$activePage = 'markenbotschafter';
+include '_header.php';
+?>
+
+<section class="hero hero--sub">
+    <div class="hero__content">
+        <div class="hero__grid">
+            <div>
+                <h1 class="hero__title">Unsere virtuellen Markenbotschafter</h1>
+                <p class="hero__subtitle">Professionelle Werbebilder und Social-Media-Content mit KI-Models – ohne Fotoshooting, ohne Modelkosten und ohne komplizierte Organisation.</p>
+                <p class="hero__text">Jedes unserer KI-Models hat einen eigenen Charakter, eine eigene Ausstrahlung und einen eigenen Stil. So findest du garantiert den passenden Markenbotschafter für deine Marke.</p>
+                <a href="/#kontakt" class="btn btn--primary">Kostenlose Beratung</a>
+            </div>
+
+
+            <div class="model-cards model-cards--grid">
+                <div class="model-card">
+                    <img src="images/anna-square.jpg" alt="Anna Keller – KI Model" class="model-card__image">
+                    <h3 class="model-card__name">Anna Keller (43, Zürich)</h3>
+                    <p class="model-card__role">KI Model für:<br/><b>Lifestyle und Luxus Marken, Mode, Tourismus, Cafés, Restaurant, Coachingangebote, Events</b></p>
+                    <p class="model-card__desc">Modern, stilvoll, urban und sehr social-media-affin. Wirkt kompetent, sympathisch und trendbewusst.<br/><br/><b>Hobbys:</b> Café-Hopping, Yoga, Städtetrips, Social Media Trends, Fotografie</p>
+                </div>
+                <div class="model-card">
+                    <img src="images/alex-square.jpg" alt="Alex Steiner – KI Model" class="model-card__image">
+                     <h3 class="model-card__name">Alex Steiner (51,Winterthur)</h3>
+                    <p class="model-card__role">KI Model für:<br/>Finanzdienstleister, Versicherungen, Unternehmensberatung, Business Software, Premium Dienstleistungen</p>
+                    <p class="model-card__desc">Hobbys:</b><br />Golf, Business Bücher, Networking, Reisen</p>
+                </div>
+
+<!--
+
+                <div class="model-card">
+                    <img src="images/anna-square.jpg" alt="Sophie – KI Model" class="model-card__image">
+                    <h3 class="model-card__name">Sophie</h3>
+                    <p class="model-card__role">KI Model – Mode & Beauty</p>
+                    <p class="model-card__desc">Elegant, ausdrucksstark und mit einem Gespür für Trends. Sophie bringt jedes Fashion- und Beauty-Produkt zum Strahlen – perfekt für Modekampagnen, Lookbooks und Beauty-Content.</p>
+                </div>
+                <div class="model-card">
+                    <img src="images/alex-square.jpg" alt="Marco – KI Model" class="model-card__image">
+                    <h3 class="model-card__name">Marco</h3>
+                    <p class="model-card__role">KI Model – Sport & Outdoor</p>
+                    <p class="model-card__desc">Dynamisch, sportlich und voller Energie. Marco ist der ideale Markenbotschafter für Fitness, Outdoor und aktive Lifestyle-Marken – authentisch und motivierend.</p>
+                </div>
+                <div class="model-card">
+                    <img src="images/anna-square.jpg" alt="Elena – KI Model" class="model-card__image">
+                    <h3 class="model-card__name">Elena</h3>
+                    <p class="model-card__role">KI Model – Gastronomie & Genuss</p>
+                    <p class="model-card__desc">Warmherzig, genussvoll und einladend. Elena verleiht Gastronomie- und Food-Kampagnen eine persönliche Note – ob Restaurant-Werbung oder kulinarischer Content.</p>
+                </div>
+                <div class="model-card">
+                    <img src="images/alex-square.jpg" alt="David – KI Model" class="model-card__image">
+                    <h3 class="model-card__name">David</h3>
+                    <p class="model-card__role">KI Model – Technologie & Innovation</p>
+                    <p class="model-card__desc">Modern, kompetent und vertrauenswürdig. David repräsentiert Tech-Unternehmen und innovative Startups mit Seriosität und Stil – perfekt für digitale Kampagnen.</p>
+                </div>
+                <div class="model-card">
+                    <img src="images/anna-square.jpg" alt="Lena – KI Model" class="model-card__image">
+                    <h3 class="model-card__name">Lena</h3>
+                    <p class="model-card__role">KI Model – Gesundheit & Wellness</p>
+                    <p class="model-card__desc">Ruhig, ausgeglichen und inspirierend. Lena ist die perfekte Markenbotschafterin für Gesundheit, Wellness und Selfcare-Marken – sie strahlt Wohlbefinden und Vertrauen aus.</p>
+                </div>
+                <div class="model-card">
+                    <img src="images/alex-square.jpg" alt="Nicolas – KI Model" class="model-card__image">
+                    <h3 class="model-card__name">Nicolas</h3>
+                    <p class="model-card__role">KI Model – Luxus & Premium</p>
+                    <p class="model-card__desc">Raffiniert, charismatisch und exklusiv. Nicolas verkörpert Luxus und gehobenen Lifestyle – ideal für Premium-Marken, Uhren, Schmuck und hochwertige Dienstleistungen.</p>
+
+-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php include '_footer.php'; ?>

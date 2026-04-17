@@ -1,0 +1,142 @@
+<?php
+require_once 'config.php';
+requireLogin();
+
+// Statistiken sammeln
+$htmlFiles = glob(BASE_DIR . '/*.html');
+$cssFiles  = glob(BASE_DIR . '/css/*.css');
+$jsFiles   = glob(BASE_DIR . '/js/*.js');
+$phpFiles  = glob(BASE_DIR . '/*.php');
+$imgFiles  = glob(BASE_DIR . '/images/*.{jpg,jpeg,png,gif,svg,webp}', GLOB_BRACE);
+
+$totalPages = count($htmlFiles);
+$totalFiles = count($cssFiles) + count($jsFiles) + count($phpFiles);
+$totalImages = count($imgFiles);
+
+// Seiten mit Details
+$pages = [];
+foreach ($htmlFiles as $file) {
+    $content = file_get_contents($file);
+    preg_match('/<title>(.*?)<\/title>/i', $content, $matches);
+    $title = $matches[1] ?? basename($file);
+    $pages[] = [
+        'file' => basename($file),
+        'title' => $title,
+        'modified' => filemtime($file),
+        'size' => filesize($file)
+    ];
+}
+usort($pages, function($a, $b) { return $b['modified'] - $a['modified']; });
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>screensolutions Admin – Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar__brand">
+            <img src="../images/logo-screensolutions-white-ki.png" alt="screensolutions" class="navbar__logo">
+            <span class="navbar__title">Admin</span>
+        </div>
+        <div class="navbar__menu">
+            <a href="dashboard.php" class="navbar__link navbar__link--active">🏠 Dashboard</a>
+            <a href="files.php" class="navbar__link">📁 Dateien</a>
+            <a href="files.php?dir=images" class="navbar__link">🖼 Bilder</a>
+            <a href="settings.php" class="navbar__link">⚙️ Einstellungen</a>
+            <a href="../index.html" class="navbar__link" target="_blank">🌐 Website</a>
+            <a href="logout.php" class="navbar__link navbar__link--logout">⏻ Logout</a>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <h1>Dashboard</h1>
+        <p class="subtitle">Willkommen im Admin-Bereich von screensolutions.ch</p>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-card__icon stat-card__icon--red">📄</div>
+                <div class="stat-card__number"><?= $totalPages ?></div>
+                <div class="stat-card__label">SEITEN</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__icon stat-card__icon--blue">💻</div>
+                <div class="stat-card__number"><?= $totalFiles ?></div>
+                <div class="stat-card__label">CODE-DATEIEN</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__icon stat-card__icon--green">🖼</div>
+                <div class="stat-card__number"><?= $totalImages ?></div>
+                <div class="stat-card__label">BILDER</div>
+            </div>
+        </div>
+
+        <!-- TABLES -->
+        <div class="tables">
+            <div class="table-card">
+                <h2>📄 Seiten</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DATEI</th>
+                            <th>TITEL</th>
+                            <th>GEÄNDERT</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($pages as $page): ?>
+                        <tr>
+                            <td><code><?= htmlspecialchars($page['file']) ?></code></td>
+                            <td><?= htmlspecialchars(mb_substr($page['title'], 0, 40)) ?></td>
+                            <td><?= date('d.m.Y H:i', $page['modified']) ?></td>
+                            <td><a href="editor.php?file=<?= urlencode($page['file']) ?>" class="btn-edit">Bearbeiten</a></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-card">
+                <h2>💻 Code-Dateien</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DATEI</th>
+                            <th>GRÖSSE</th>
+                            <th>GEÄNDERT</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $codeFiles = array_merge(
+                            array_map(fn($f) => ['path' => 'css/' . basename($f), 'file' => $f], $cssFiles),
+                            array_map(fn($f) => ['path' => 'js/' . basename($f), 'file' => $f], $jsFiles),
+                            array_map(fn($f) => ['path' => basename($f), 'file' => $f], $phpFiles)
+                        );
+                        usort($codeFiles, fn($a, $b) => filemtime($b['file']) - filemtime($a['file']));
+                        foreach ($codeFiles as $cf):
+                        ?>
+                        <tr>
+                            <td><code><?= htmlspecialchars($cf['path']) ?></code></td>
+                            <td><?= formatSize(filesize($cf['file'])) ?></td>
+                            <td><?= date('d.m.Y H:i', filemtime($cf['file'])) ?></td>
+                            <td><a href="editor.php?file=<?= urlencode($cf['path']) ?>" class="btn-edit">Bearbeiten</a></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

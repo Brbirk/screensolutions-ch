@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Seite | screensolutions</title>
+    <meta name="description" content="Dies ist eine Testseite zum Testen der Seitenerstellung.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="screensolutions gmbh">
+    <meta name="geo.region" content="CH-TG">
+    <meta name="geo.placename" content="Affeltrangen">
+    <link rel="canonical" href="https://screensolutions.ch/test-seite.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://screensolutions.ch/test-seite.html">
+    <meta property="og:title" content="Test Seite | screensolutions">
+    <meta property="og:description" content="Dies ist eine Testseite zum Testen der Seitenerstellung.">
+    <meta property="og:image" content="https://screensolutions.ch/images/logo-screensolutions-white-ki.png">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:site_name" content="screensolutions">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Test Seite | screensolutions">
+    <meta name="twitter:description" content="Dies ist eine Testseite zum Testen der Seitenerstellung.">
+    <meta name="twitter:image" content="https://screensolutions.ch/images/logo-screensolutions-white-ki.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header__inner">
+        <a href="index.html" class="header__logo">
+            <img src="images/logo-screensolutions-white-ki.png" alt="screensolutions - KI mit Wirkung">
+        </a>
+        <nav class="nav">
+                    <a href="index.html" class="nav__link">KI</a>
+                    <a href="fotografie.html" class="nav__link">Fotografie</a>
+                    <a href="webdesign.html" class="nav__link">Webdesign</a>
+                    <a href="agentur.html" class="nav__link">Agentur</a>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero hero--sub">
+    <div class="hero__content">
+        <h1>Willkommen auf der Testseite</h1>
+    </div>
+</section>
+
+<!-- INHALT -->
+<section class="section section--light">
+    <div class="container">
+        <h2>Inhalt hier einf&uuml;gen</h2>
+        <p>Diese Seite wurde mit dem Admin-Panel erstellt. Bearbeite den Inhalt im Editor.</p>
+    </div>
+</section>
+
+<!-- CONTACT FORM (shared include) -->
+<div id="contact-form"></div>
+<script src="js/contact-form.js"></script>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer__wave">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,40 C360,100 1080,0 1440,60 L1440,100 L0,100 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="footer__content">
+        <p class="footer__tagline"><strong>Visionen sichtbar machen</strong></p>
+        <p class="footer__text">Kreativit&auml;t trifft Technologie &ndash; wir gestalten die visuelle Zukunft deiner Marke mit der<br>Kraft k&uuml;nstlicher Intelligenz.</p>
+    </div>
+    <div class="footer__bottom">
+        <p class="footer__company">screensolutions gmbh</p>
+        <p class="footer__address">Hauptstrasse 1 &middot; 9556 Affeltrangen &middot; Schweiz</p>
+        <p class="footer__links">
+            <a href="mailto:info@screensolutions.ch">info@screensolutions.ch</a>
+        </p>
+        <p class="footer__copy">&copy; 2026 screensolutions gmbh</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

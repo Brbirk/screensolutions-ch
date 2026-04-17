@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="images/logo-screensolutions-white-ki.png" as="image">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <title>KI Agentur für visuelle Werbung & Content | screensolutions</title>
+  <meta name="description" content="screensolutions – Deine KI Agentur für visuelle Werbung & Content. Wir verwandeln dein Angebot in Bilder, die berühren. Für KMU in der Schweiz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://screensolutions.ch/#organization",
+        "name": "screensolutions gmbh",
+        "alternateName": "screensolutions",
+        "url": "https://screensolutions.ch",
+        "logo": "https://screensolutions.ch/images/logo-screensolutions-white-ki.png",
+        "description": "KI Agentur für visuelle Werbung, Content-Erstellung und Webdesign. Wir erstellen mit KI professionelle Bilder, Werbemotive und digitale Inhalte für KMU in der Schweiz.",
+        "email": "info@screensolutions.ch",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hauptstrasse 1",
+          "addressLocality": "Affeltrangen",
+          "postalCode": "9556",
+          "addressRegion": "TG",
+          "addressCountry": "CH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 47.5164,
+          "longitude": 9.0048
+        },
+        "areaServed": [
+          {"@type": "Country", "name": "Schweiz"},
+          {"@type": "AdministrativeArea", "name": "Thurgau"},
+          {"@type": "AdministrativeArea", "name": "Ostschweiz"}
+        ],
+        "knowsLanguage": ["de", "en"],
+        "foundingDate": "2000",
+        "sameAs": [],
+        "priceRange": "$$",
+        "serviceType": ["KI Content Erstellung", "Webdesign", "Fotografie", "Visuelle Werbung", "Online Marketing"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "screensolutions",
+        "url": "https://screensolutions.ch",
+        "publisher": {"@id": "https://screensolutions.ch/#organization"},
+        "inLanguage": "de-CH"
+      }
+    ]
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="screensolutions gmbh">
+    <meta name="geo.region" content="CH-TG">
+    <meta name="geo.placename" content="Affeltrangen">
+    <link rel="canonical" href="https://screensolutions.ch/">
+    <meta name="language" content="de">
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="-X0m6glOFx5wH_ZWkRac3-9XPFJ59FPDdrKETQPmirA">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://screensolutions.ch/">
+    <meta property="og:title" content="KI Agentur für visuelle Werbung & Content | screensolutions">
+    <meta property="og:description" content="screensolutions – Deine KI Agentur für visuelle Werbung & Content. Wir verwandeln dein Angebot in Bilder, die berühren. Für KMU in der Schweiz.">
+    <meta property="og:image" content="https://screensolutions.ch/images/logo-screensolutions-white-ki.png">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:site_name" content="screensolutions">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KI Agentur für visuelle Werbung & Content | screensolutions">
+    <meta name="twitter:description" content="screensolutions – Deine KI Agentur für visuelle Werbung & Content. Wir verwandeln dein Angebot in Bilder, die berühren.">
+    <meta name="twitter:image" content="https://screensolutions.ch/images/logo-screensolutions-white-ki.png">
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">
+        <img src="images/logo-screensolutions-white-ki.png" alt="screensolutions – KI mit Wirkung">
+      </a>
+      <nav class="nav">
+        <a href="/" class="nav__link nav__link--active">KI</a>
+        <a href="/fotografie" class="nav__link">Fotografie</a>
+        <a href="/webdesign" class="nav__link">Webdesign</a>
+        <a href="/agentur" class="nav__link">Agentur</a>
+            <a href="/blog" class="nav__link">Blog</a>
+      </nav>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero hero--home">
+    <div class="hero__content">
+      <div class="hero__grid">
+        <div>
+          <h1 class="hero__title">Deine Marke als Bildwelt</h1>
+          <p class="hero__subtitle">Wir verwandeln dein Angebot in visuelle Inhalte, die Menschen berühren – und im Kopf bleiben.</p>
+          <p class="hero__text">Visuelle Inhalte & Werbung mit KI – für KMU, die sichtbar sein wollen. Moderner Content. Klare Botschaften. Mehr Wirkung.</p>
+          <a href="#kontakt" class="btn btn--primary">Kontakt</a>
+        </div>
+        <div class="model-cards">
+          <!-- Anna -->
+          <div class="model-card">
+            <img loading="lazy" src="images/anna-square.jpg" alt="Anna – KI Model" class="model-card__image">
+            <h3 class="model-card__name">Anna</h3>
+            <p class="model-card__role">KI Model</p>
+            <p class="model-card__desc">Sympathisch, nahbar und überraschend vielseitig. Anna ist kein klassisches Model – sie ist eine KI-generierte Markenbotschafterin, entwickelt für authentische Produktwerbung mit echtem Wiedererkennungswert. Perfekt für Social Media, Kampagnen und Content, der auffällt – ohne aufwendige Shootings.</p>
+          </div>
+          <!-- Alex -->
+          <div class="model-card">
+            <img loading="lazy" src="images/alex-square.jpg" alt="Alex – KI Model" class="model-card__image">
+            <h3 class="model-card__name">Alex</h3>
+            <p class="model-card__role">KI Model</p>
+            <p class="model-card__desc">Stilvoll, wandelbar und immer perfekt inszeniert. Selbstbewusst, stilsicher und immer on point. Alex verkörpert Professionalität und moderne Ästhetik – als KI-generiertes Model steht er für hochwertige Markenwerbung, die sofort Vertrauen schafft. Ideal für Business-Content, Lifestyle-Kampagnen und Premium-Werbung – Alex bringt jedes Produkt mit der richtigen Ausstrahlung in Szene.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section class="video-section section section--light">
+    <div class="container">
+      <h2 class="fade-in">Lerne Anna & Alex kennen</h2>
+      <div class="video-wrapper fade-in">
+        <iframe src="https://www.youtube.com/embed/Yckqe8a_zoQ" title="ANNA & ALEX | Deine KI Markenbotschafter" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE COLUMNS: Problem / Solution / Benefits -->
+  <section class="three-col section section--light">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="three-col__item fade-in">
+          <div class="three-col__heading-row">
+            <div class="three-col__icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Dein Unternehmen ist gut – aber sieht man das auch?</h3>
+          </div>
+          <p>Du weisst, dass du präsent sein müsstest. Auf Social Media. Auf deiner Website. In der Werbung.</p>
+          <p><strong>Aber ehrlich:</strong></p>
+          <ul>
+            <li>Du hast keine Zeit, ständig Content zu erstellen</li>
+            <li>Social Media fühlt sich nach Pflicht statt Nutzen an</li>
+            <li>Agenturen sind teuer und oft weit weg von deiner Realität</li>
+            <li>KI klingt spannend – ist aber kompliziert und überfordernd</li>
+          </ul>
+          <p><strong><em>Am Schluss passiert nichts!</em></strong></p>
+        </div>
+        <div class="three-col__item fade-in">
+          <div class="three-col__heading-row">
+            <div class="three-col__icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Genau hier kommen wir ins Spiel</h3>
+          </div>
+          <p>Wir erstellen für dich visuelle Inhalte und Werbung mit KI, die professionell aussehen, zu deinem Unternehmen passen und deine Kunden wirklich ansprechen.</p>
+          <ul>
+            <li>Nicht technisch.</li>
+            <li>Nicht austauschbar.</li>
+            <li>Sondern klar, emotional und verkaufsstark.</li>
+          </ul>
+        </div>
+        <div class="three-col__item fade-in">
+          <div class="three-col__heading-row">
+            <div class="three-col__icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Was du bei uns bekommst</h3>
+          </div>
+          <p><strong>Inhalte, die auffallen</strong><br>Bilder, Visuals und Werbemotive, die nicht wie Stockfotos aussehen.</p>
+          <p><strong>Eine klare Bildsprache</strong><br>Ein einheitlicher Look, der zu deiner Marke passt – und wiedererkannt wird.</p>
+          <p><strong>Weniger Aufwand für dich</strong><br>Kein Herumprobieren, kein KI-Chaos, kein Zeitverlust.</p>
+          <p><strong>Ergebnisse statt Experimente</strong><br>Wir denken immer vom Ziel her: Sichtbarkeit, Vertrauen, Verkauf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ANNA & ALEX -->
+  <section class="showcase section">
+    <div class="container">
+      <div class="showcase__layout fade-in">
+        <div>
+          <img loading="lazy" src="images/anna-alex-square.jpg" alt="Anna und Alex – KI Models" class="showcase__layout-image">
+        </div>
+        <div>
+          <div class="showcase__grid">
+            <div class="showcase__item">
+              <img loading="lazy" src="images/noctara.png" alt="Anna für NOCTARA Coffee">
+              <div class="showcase__label">Anna für NOCTARA Coffee</div>
+            </div>
+            <div class="showcase__item">
+              <img loading="lazy" src="images/vantor.png" alt="Alex für VANTOR">
+              <div class="showcase__label">Alex für VANTOR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="showcase__text fade-in">
+        Anna und Alex stehen für Ausstrahlung, Stil und eine starke visuelle Präsenz. Sie verkörpern moderne Markenwerte wie Innovation, Selbstbewusstsein und Nahbarkeit – perfekt, um Produkte oder Dienstleistungen authentisch in Szene zu setzen.
+        Beide sind vielseitig einsetzbar: von Social Media Kampagnen über Imagefilme bis hin zu Werbefotografie. Sie transportieren Emotion, schaffen Wiedererkennungswert und geben deiner Marke ein Gesicht mit Charakter.
+      </p>
+      <p class="showcase__text fade-in">
+        Und das Beste: Anna und Alex sind nur der Anfang. Wir verfügen über eine breite Auswahl weiterer Modelle mit unterschiedlichen Looks, Altersgruppen und Ausstrahlungen. So finden wir für jede Marke und jede Zielgruppe die passende Persönlichkeit – individuell, flexibel und professionell inszeniert.
+      </p>
+    </div>
+  </section>
+
+  <!-- KI STATEMENT -->
+  <section class="ki-statement section">
+    <div class="container">
+      <h2 class="fade-in">KI ist nur das Werkzeug – nicht die Lösung</h2>
+      <div class="ki-statement__content fade-in">
+        <div>
+          <p>KI kann viel. Aber ohne Erfahrung, Gefühl für Bilder und Verständnis für Werbung bleibt sie beliebig.</p>
+          <p>screensolutions gmbh verbindet:</p>
+          <ul class="ki-statement__list">
+            <li>Jahrelange visuelle Erfahrung</li>
+            <li>Marketing-Denken</li>
+            <li>Erfahrung mit modernsten KI-Technologien</li>
+          </ul>
+          <p>So entsteht Content, der menschlich wirkt – nicht künstlich.</p>
+        </div>
+        <div>
+          <p>Als KI Agentur in der Schweiz unterstützen wir KMU dabei, mit visueller Werbung und professionellem Content sichtbar zu werden – effizient, bezahlbar und mit echtem Wiedererkennungswert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  
+<!-- BLOG LATEST -->
+<section class="blog-section" id="blog">
+    <h2 class="blog-section__title">Aktuelles aus dem Blog</h2>
+    <p class="blog-section__subtitle">Einblicke in KI, Fotografie und Webdesign</p>
+    <div id="blog-latest"></div>
+</section>
+<script src="js/blog.js?v=2"></script>
+<script>loadLatestArticles('blog-latest', 6);</script>
+
+<section class="faq section" id="faq">
+    <div class="container">
+      <h2 class="fade-in">Häufig gestellte Fragen</h2>
+      <p class="faq__intro fade-in">Du hast Fragen zu unserer Arbeitsweise, unseren KI-Models oder den Möglichkeiten von KI-generiertem Content? Hier findest du Antworten.</p>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Was genau macht screensolutions?</div>
+        <div class="faq__answer">screensolutions ist eine KI Agentur aus der Schweiz, die sich auf visuelle Werbung und Content Creation mit künstlicher Intelligenz spezialisiert hat. Wir erstellen professionelle Bilder, Videos und Werbemotive für KMU – schnell, bezahlbar und in hoher Qualität. Dabei setzen wir auf eigene KI-Models wie Anna und Alex, die deine Marke authentisch repräsentieren.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Wer sind Anna und Alex?</div>
+        <div class="faq__answer">Anna und Alex sind unsere KI-generierten Markenbotschafter. Sie sehen aus wie echte Models, sind aber vollständig digital erschaffen. Das bedeutet: keine Terminkoordination, keine Reisekosten, keine Nutzungsrechte-Probleme. Sie sind jederzeit verfügbar und können für jede Branche, jedes Produkt und jeden Stil angepasst werden.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Für wen eignet sich KI-generierter Content?</div>
+        <div class="faq__answer">Unser Angebot richtet sich vor allem an kleine und mittlere Unternehmen (KMU) in der Schweiz, die professionell auftreten möchten, aber nicht das Budget für aufwendige Fotoshootings oder grosse Werbeagenturen haben. Ob Onlineshop, Dienstleister, Gastronomie oder Handwerk – KI-Content funktioniert branchenübergreifend.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Wie läuft eine Zusammenarbeit ab?</div>
+        <div class="faq__answer">Ganz einfach: Du schreibst uns über das Kontaktformular oder per E-Mail. Wir besprechen deine Wünsche, erstellen ein Konzept und liefern dir innerhalb weniger Tage fertige Inhalte – Bilder, Social-Media-Posts oder Werbemotive. Du brauchst dich um nichts zu kümmern.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Was kostet KI-generierter Content?</div>
+        <div class="faq__answer">Deutlich weniger als ein klassisches Fotoshooting mit echten Models. Dank KI-Technologie können wir hochwertige Ergebnisse zu einem Bruchteil der üblichen Kosten liefern. Die genauen Preise hängen vom Umfang ab – kontaktiere uns für ein unverbindliches Angebot.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Sieht man, dass die Bilder mit KI erstellt wurden?</div>
+        <div class="faq__answer">In den meisten Fällen: nein. Unsere KI-generierten Bilder sind so hochwertig, dass sie von klassischer Fotografie kaum zu unterscheiden sind. Dazu kommt unsere jahrelange Erfahrung in visueller Gestaltung und Marketing – wir wissen, worauf es ankommt, damit Bilder nicht nur gut aussehen, sondern auch verkaufen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM (shared include) -->
+  <div id="contact-form"></div>
+  <script src="js/contact-form.js"></script>
+
+    <!-- CLIENT LOGOS MARQUEE -->
+  <section class="clients">
+    <div class="clients__track">
+      <img loading="lazy" src="images/stellen-zuerich-logo.png" alt="Stellen Zürich">
+      <img loading="lazy" src="images/logo-tinderfoto.png" alt="Tinderfoto">
+      <img loading="lazy" src="images/logo-ditari.png" alt="Ditari">
+      <img loading="lazy" src="images/stellen-bern-logo-kl.png" alt="Stellen Bern">
+      <img loading="lazy" src="images/mwg_logo-.png" alt="Merwag">
+      <img loading="lazy" src="images/jobs-logo.png" alt="Jobs.ch">
+      <img loading="lazy" src="images/logo-bruno-birkhhofer.png" alt="Bruno Birkhofer">
+      <img loading="lazy" src="images/logo-bagno-sasso.jpg" alt="Bagno Sasso">
+      <img loading="lazy" src="images/Hohentwiel-verein.jpg" alt="Verein Hohentwiel">
+      <img loading="lazy" src="images/kp.png" alt="Kanalprofis">
+      <img loading="lazy" src="images/arbon-classics.jpg" alt="Arbon Classics">
+      <img loading="lazy" src="images/schuelfoti-logo-sw.png" alt="Schuelfoti GmbH">
+      <img loading="lazy" src="images/logo-handelsrichter.png" alt="Handelsrichter">
+      <img loading="lazy" src="images/glbs.png" alt="GLOBUS">
+      <img loading="lazy" src="images/LogoFrei.jpg" alt="Frei Patentanwaltsbüro">
+      <img loading="lazy" src="images/logo-rolf-senti.jpg" alt="Rolf Senti">
+      <!-- Duplicate for seamless loop -->
+      <img loading="lazy" src="images/stellen-zuerich-logo.png" alt="Stellen Zürich">
+      <img loading="lazy" src="images/logo-tinderfoto.png" alt="Tinderfoto">
+      <img loading="lazy" src="images/logo-ditari.png" alt="Ditari">
+      <img loading="lazy" src="images/stellen-bern-logo-kl.png" alt="Stellen Bern">
+      <img loading="lazy" src="images/mwg_logo-.png" alt="Merwag">
+      <img loading="lazy" src="images/jobs-logo.png" alt="Jobs.ch">
+      <img loading="lazy" src="images/logo-bruno-birkhhofer.png" alt="Bruno Birkhofer">
+      <img loading="lazy" src="images/logo-bagno-sasso.jpg" alt="Bagno Sasso">
+      <img loading="lazy" src="images/Hohentwiel-verein.jpg" alt="Verein Hohentwiel">
+      <img loading="lazy" src="images/kp.png" alt="Kanalprofis">
+      <img loading="lazy" src="images/arbon-classics.jpg" alt="Arbon Classics">
+      <img loading="lazy" src="images/schuelfoti-logo-sw.png" alt="Schuelfoti GmbH">
+      <img loading="lazy" src="images/logo-handelsrichter.png" alt="Handelsrichter">
+      <img loading="lazy" src="images/glbs.png" alt="GLOBUS">
+      <img loading="lazy" src="images/LogoFrei.jpg" alt="Frei Patentanwaltsbüro">
+      <img loading="lazy" src="images/logo-rolf-senti.jpg" alt="Rolf Senti">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__canvas-wrap">
+      <canvas id="footer-wave-canvas"></canvas>
+    </div>
+    <div class="container footer__content">
+      <p class="footer__tagline">Visionen sichtbar machen</p>
+      <p class="footer__sub">Kreativität trifft Technologie – wir gestalten die visuelle Zukunft deiner Marke mit der Kraft künstlicher Intelligenz.</p>
+    </div>
+    <div class="footer__contact">
+      <div class="container">
+        <p>screensolutions gmbh<br>Hauptstrasse 15<br>9556 Affeltrangen</p>
+        <p class="footer__contact__tel">Tel: <a href="tel:+41763441794">076 344 17 94</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

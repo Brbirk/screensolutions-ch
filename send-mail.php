@@ -1,0 +1,156 @@
+<?php
+header("Content-Type: application/json");
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    echo json_encode(["success" => false, "message" => "Nur POST erlaubt."]);
+    exit;
+}
+
+$name = trim($_POST["name"] ?? "");
+$email = trim($_POST["email"] ?? "");
+$message = trim($_POST["message"] ?? "");
+$captcha = trim($_POST["captcha"] ?? "");
+$captchaAnswer = trim($_POST["captcha_answer"] ?? "");
+$angebot = trim($_POST["angebot"] ?? "");
+
+// Validierung
+if (empty($name) || empty($email) || empty($message)) {
+    echo json_encode(["success" => false, "message" => "Bitte alle Felder ausf\u00fcllen."]);
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(["success" => false, "message" => "Ung\u00fcltige E-Mail-Adresse."]);
+    exit;
+}
+
+if ($captcha !== $captchaAnswer) {
+    echo json_encode(["success" => false, "message" => "Captcha falsch."]);
+    exit;
+}
+
+$adminEmail = "info@screensolutions.ch";
+$datum = date("d.m.Y \u\m H:i \U\h\r");
+
+// === 1) MAIL AN ADMIN (HTML) ===
+$adminSubject = "Neue Kontaktanfrage von " . $name;
+
+$adminHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:0;font-family:Raleway,Helvetica,Arial,sans-serif;background:#f4f4f7;">';
+$adminHtml .= '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f7;padding:40px 20px;">';
+$adminHtml .= '<tr><td align="center">';
+$adminHtml .= '<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);">';
+
+// Header mit Badge
+$adminHtml .= '<tr><td style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:30px 40px;">';
+$adminHtml .= '<table width="100%"><tr>';
+$adminHtml .= '<td><img src="https://screensolutions.ch/images/logo-screensolutions-white-ki.png" alt="screensolutions" style="height:40px;" /></td>';
+$adminHtml .= '<td align="right"><span style="background:#ff4d6d;color:#fff;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;">Neue Anfrage</span></td>';
+$adminHtml .= '</tr></table>';
+$adminHtml .= '</td></tr>';
+
+// Kontaktdaten-Karte
+$adminHtml .= '<tr><td style="padding:35px 40px 0;">';
+$adminHtml .= '<h1 style="color:#1a1a2e;font-size:22px;margin:0 0 5px;">Neue Kontaktanfrage</h1>';
+$adminHtml .= '<p style="color:#999;font-size:13px;margin:0 0 25px;">' . $datum . '</p>';
+$adminHtml .= '</td></tr>';
+
+// Absender-Info Box
+$adminHtml .= '<tr><td style="padding:0 40px;">';
+$adminHtml .= '<table width="100%" style="background:#f8f8fb;border-radius:8px;padding:20px;margin-bottom:20px;" cellpadding="0" cellspacing="0">';
+$adminHtml .= '<tr><td style="padding:12px 20px;">';
+$adminHtml .= '<p style="color:#999;font-size:11px;font-weight:600;letter-spacing:0.05em;margin:0 0 10px;">ABSENDER</p>';
+$adminHtml .= '<table cellpadding="0" cellspacing="0">';
+$adminHtml .= '<tr><td style="color:#888;font-size:13px;padding:4px 15px 4px 0;vertical-align:top;">Name:</td><td style="color:#1a1a2e;font-size:13px;font-weight:600;padding:4px 0;">' . htmlspecialchars($name) . '</td></tr>';
+$adminHtml .= '<tr><td style="color:#888;font-size:13px;padding:4px 15px 4px 0;vertical-align:top;">E-Mail:</td><td style="color:#1a1a2e;font-size:13px;font-weight:600;padding:4px 0;"><a href="mailto:' . htmlspecialchars($email) . '" style="color:#1a73e8;text-decoration:none;">' . htmlspecialchars($email) . '</a></td></tr>';
+$adminHtml .= '<tr><td style="color:#999;font-size:13px;padding:6px 0;">Angebot:</td><td style="color:#333;font-size:13px;font-weight:600;">' . ($angebot ? htmlspecialchars($angebot) : "–") . '</td></tr>' . "\n";
+$adminHtml .= '</table>';
+$adminHtml .= '</td></tr></table>';
+$adminHtml .= '</td></tr>';
+
+// Nachricht
+$adminHtml .= '<tr><td style="padding:0 40px 35px;">';
+$adminHtml .= '<div style="border-left:4px solid #ff4d6d;background:#fff8f9;border-radius:0 8px 8px 0;padding:20px 25px;">';
+$adminHtml .= '<p style="color:#999;font-size:11px;font-weight:600;letter-spacing:0.05em;margin:0 0 8px;">NACHRICHT</p>';
+$adminHtml .= '<p style="color:#333;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">' . htmlspecialchars($message) . '</p>';
+$adminHtml .= '</div>';
+$adminHtml .= '</td></tr>';
+
+// Antwort-Button
+$adminHtml .= '<tr><td style="padding:0 40px 35px;text-align:center;">';
+$adminHtml .= '<a href="mailto:' . htmlspecialchars($email) . '?subject=Re: Deine Anfrage bei screensolutions" style="display:inline-block;background:#1a73e8;color:#fff;text-decoration:none;padding:14px 35px;border-radius:8px;font-size:14px;font-weight:600;">Direkt antworten</a>';
+$adminHtml .= '</td></tr>';
+
+// Footer
+$adminHtml .= '<tr><td style="background:#f8f8fb;padding:20px 40px;text-align:center;border-top:1px solid #eee;">';
+$adminHtml .= '<p style="color:#bbb;font-size:11px;margin:0;">Admin-Benachrichtigung | screensolutions.ch/test</p>';
+$adminHtml .= '</td></tr>';
+
+$adminHtml .= '</table></td></tr></table></body></html>';
+
+$adminHeaders  = "From: screensolutions <noreply@screensolutions.ch>\r\n";
+$adminHeaders .= "Reply-To: " . $email . "\r\n";
+$adminHeaders .= "MIME-Version: 1.0\r\n";
+$adminHeaders .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+$sent = mail($adminEmail, $adminSubject, $adminHtml, $adminHeaders);
+
+// === 2) BESTAETIGUNGSMAIL AN ABSENDER (HTML) ===
+$confirmSubject = "Deine Anfrage bei screensolutions";
+
+$htmlBody = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:0;font-family:Raleway,Helvetica,Arial,sans-serif;background:#f4f4f7;">' . "\n";
+$htmlBody .= '<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f7;padding:40px 20px;">' . "\n";
+$htmlBody .= '<tr><td align="center">' . "\n";
+$htmlBody .= '<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);">' . "\n";
+
+// Header
+$htmlBody .= '<tr><td style="background:linear-gradient(135deg,#1a1a2e,#16213e);padding:35px 40px;text-align:center;">' . "\n";
+$htmlBody .= '<img src="https://screensolutions.ch/images/logo-screensolutions-white-ki.png" alt="screensolutions" style="height:45px;" />' . "\n";
+$htmlBody .= '</td></tr>' . "\n";
+
+// Content
+$htmlBody .= '<tr><td style="padding:40px;">' . "\n";
+$htmlBody .= '<h1 style="color:#1a1a2e;font-size:24px;margin:0 0 10px;">Vielen Dank, ' . htmlspecialchars($name) . '!</h1>' . "\n";
+$htmlBody .= '<p style="color:#666;font-size:15px;line-height:1.7;margin:0 0 25px;">Wir haben deine Nachricht erhalten und melden uns in der Regel innerhalb von 24 Stunden bei dir.</p>' . "\n";
+
+// Nachricht-Box
+$htmlBody .= '<div style="background:#f8f8fb;border-radius:8px;padding:25px;border-left:4px solid #ff4d6d;margin-bottom:25px;">' . "\n";
+$htmlBody .= '<p style="color:#999;font-size:12px;font-weight:600;letter-spacing:0.05em;margin:0 0 8px;">DEINE NACHRICHT</p>' . "\n";
+$htmlBody .= '<p style="color:#333;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">' . htmlspecialchars($message) . '</p>' . "\n";
+$htmlBody .= '</div>' . "\n";
+
+// Details
+$htmlBody .= '<table width="100%" style="margin-bottom:25px;">' . "\n";
+$htmlBody .= '<tr><td style="color:#999;font-size:13px;padding:6px 0;width:80px;">Name:</td><td style="color:#333;font-size:13px;font-weight:600;">' . htmlspecialchars($name) . '</td></tr>' . "\n";
+$htmlBody .= '<tr><td style="color:#999;font-size:13px;padding:6px 0;">E-Mail:</td><td style="color:#333;font-size:13px;font-weight:600;">' . htmlspecialchars($email) . '</td></tr>' . "\n";
+$htmlBody .= '<tr><td style="color:#999;font-size:13px;padding:6px 0;">Datum:</td><td style="color:#333;font-size:13px;font-weight:600;">' . $datum . '</td></tr>' . "\n";
+$htmlBody .= '<tr><td style="color:#999;font-size:13px;padding:6px 0;">Angebot:</td><td style="color:#333;font-size:13px;font-weight:600;">' . ($angebot ? htmlspecialchars($angebot) : "\u2013") . '</td></tr>' . "\n";
+$htmlBody .= '</table>' . "\n";
+
+// Button
+$htmlBody .= '<div style="text-align:center;margin:30px 0 10px;">' . "\n";
+$htmlBody .= '<a href="https://screensolutions.ch/" style="display:inline-block;background:#ff4d6d;color:#fff;text-decoration:none;padding:14px 35px;border-radius:8px;font-size:14px;font-weight:600;">Zur Website</a>' . "\n";
+$htmlBody .= '</div>' . "\n";
+
+$htmlBody .= '</td></tr>' . "\n";
+
+// Footer
+$htmlBody .= '<tr><td style="background:#f8f8fb;padding:25px 40px;text-align:center;border-top:1px solid #eee;">' . "\n";
+$htmlBody .= '<p style="color:#999;font-size:12px;margin:0 0 5px;">screensolutions gmbh | KI Agentur</p>' . "\n";
+$htmlBody .= '<p style="color:#bbb;font-size:11px;margin:0;">Diese E-Mail wurde automatisch gesendet. Bitte antworte nicht direkt auf diese Nachricht.</p>' . "\n";
+$htmlBody .= '</td></tr>' . "\n";
+
+$htmlBody .= '</table></td></tr></table></body></html>';
+
+$confirmHeaders  = "From: screensolutions <noreply@screensolutions.ch>\r\n";
+$confirmHeaders .= "Reply-To: info@screensolutions.ch\r\n";
+$confirmHeaders .= "MIME-Version: 1.0\r\n";
+$confirmHeaders .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+mail($email, $confirmSubject, $htmlBody, $confirmHeaders);
+
+// Antwort
+if ($sent) {
+    echo json_encode(["success" => true, "message" => "Nachricht gesendet!"]);
+} else {
+    echo json_encode(["success" => false, "message" => "Fehler beim Senden. Bitte versuche es sp\u00e4ter."]);
+}

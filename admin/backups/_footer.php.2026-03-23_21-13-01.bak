@@ -1,0 +1,22 @@
+
+    <footer class="footer">
+    <div class="footer__canvas-wrap">
+      <canvas id="footer-wave-canvas"></canvas>
+    </div>
+    <div class="container footer__content">
+      <p class="footer__tagline">Visionen sichtbar machen</p>
+      <p class="footer__sub">Kreativität trifft Technologie – wir gestalten die visuelle Zukunft deiner Marke mit der Kraft künstlicher Intelligenz.</p>
+    </div>
+    <div class="footer__contact">
+      <div class="container">
+        <p>screensolutions gmbh<br>Hauptstrasse 15<br>9556 Affeltrangen</p>
+        <p class="footer__contact__tel">Tel: <a href="tel:+41763441794">076 344 17 94</a></p>
+      </div>
+    </div>
+  </footer>
+
+    <script src="/js/main.js"></script>
+    <?php if (isset($extraScripts)) echo $extraScripts; ?>
+
+</body>
+</html>

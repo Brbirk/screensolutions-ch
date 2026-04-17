@@ -1,0 +1,55 @@
+<?php
+require_once 'config.php';
+requireLogin();
+
+$file = __DIR__ . '/new-page.php';
+$c = file_get_contents($file);
+
+// Track changes
+$changes = [];
+
+// 1. Add cleanUrl helper if not present
+if (strpos($c, 'function cleanUrl') === false) {
+    $helper = "\nfunction cleanUrl(\$file) {\n    if (\$file === 'index.html') return '/';\n    return '/' . str_replace('.html', '', \$file);\n}\n";
+    // Insert after the first function
+    $pos = strpos($c, 'function getPageTemplate');
+    if ($pos !== false) {
+        $c = substr($c, 0, $pos) . $helper . "\n" . substr($c, $pos);
+        $changes[] = 'Added cleanUrl helper';
+    }
+}
+
+// 2. Replace nav href to use cleanUrl
+// Pattern: $href = $file; -> $href = cleanUrl($file);
+$c = str_replace('$href = $file;', '$href = cleanUrl($file);', $c);
+if (strpos($c, 'cleanUrl($file)') !== false) $changes[] = 'Updated nav href';
+
+// 3. Update canonical URL generation
+// screensolutions.ch/' . $filename -> use cleanUrl
+$old1 = "screensolutions.ch/' . \$filename";
+$new1 = "screensolutions.ch' . cleanUrl(\$filename)";
+if (strpos($c, $old1) !== false) {
+    $c = str_replace($old1, $new1, $c);
+    $changes[] = 'Updated canonical URLs';
+}
+
+// 4. Update danke redirect
+$c = str_replace("danke.html", "danke", $c);
+
+// 5. Update updateNavigation to use clean URLs  
+// When adding nav links to other pages, use clean URL
+$old2 = "' . \$newFile . '";
+if (strpos($c, $old2) !== false) {
+    // Need to replace only in the href context, not file system context
+    // The nav link pattern includes href="' . $newFile . '"
+    $c = str_replace(
+        'href=\"' . "' . \$newFile . '" . '\"',
+        'href=\"' . "' . cleanUrl(\$newFile) . '" . '\"',
+        $c
+    );
+    $changes[] = 'Updated updateNavigation hrefs';
+}
+
+file_put_contents($file, $c);
+echo json_encode(['changes' => $changes, 'newLength' => strlen($c)]);
+?>

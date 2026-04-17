@@ -1,0 +1,100 @@
+// Blog Frontend - screensolutions.ch
+const BLOG_API = '/admin/blog-api.php';
+
+function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    const months = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    return d.getDate() + '. ' + months[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function createArticleCard(article) {
+    const img = article.image ? '<div class="blog-card__image"><img src="' + (article.image.startsWith('/') ? article.image : '/' + article.image) + '" alt="' + article.title + '" loading="lazy"></div>' : '';
+    return '<a href="/blog/' + article.slug + '" class="blog-card">'
+        + img
+        + '<div class="blog-card__body">'
+        + '<time class="blog-card__date">' + formatDate(article.date) + '</time>'
+        + '<h3 class="blog-card__title">' + article.title + '</h3>'
+        + '<p class="blog-card__excerpt">' + article.excerpt + '</p>'
+        + '<span class="blog-card__more">Weiterlesen &rarr;</span>'
+        + '</div></a>';
+}
+
+// Load blog listing (for blog.html)
+async function loadBlogListing(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    try {
+        const resp = await fetch(BLOG_API + '?action=list');
+        const data = await resp.json();
+        
+        if (data.success && data.articles.length > 0) {
+            container.innerHTML = '<div class="blog-grid">' 
+                + data.articles.map(createArticleCard).join('') 
+                + '</div>';
+        } else {
+            container.innerHTML = '<p class="blog-empty">Noch keine Blogartikel vorhanden.</p>';
+        }
+    } catch(e) {
+        container.innerHTML = '<p class="blog-empty">Blog konnte nicht geladen werden.</p>';
+    }
+}
+
+// Load latest articles (for homepage)
+async function loadLatestArticles(containerId, limit) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    try {
+        const resp = await fetch(BLOG_API + '?action=list&limit=' + (limit || 6));
+        const data = await resp.json();
+        
+        if (data.success && data.articles.length > 0) {
+            container.innerHTML = '<div class="blog-grid blog-grid--home">' 
+                + data.articles.map(createArticleCard).join('') 
+                + '</div>'
+                + '<div class="blog-more-link"><a href="/blog" class="btn btn--outline">Alle Artikel ansehen</a></div>';
+        }
+    } catch(e) {
+        // Silently fail on homepage
+    }
+}
+
+// Load single article (for article page)
+async function loadArticle(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    // Get slug from URL: /blog/article-slug
+    const path = window.location.pathname;
+    const slug = path.replace('/blog/', '');
+    
+    if (!slug || slug === 'blog') return;
+    
+    try {
+        const resp = await fetch(BLOG_API + '?action=get&slug=' + encodeURIComponent(slug));
+        const data = await resp.json();
+        
+        if (data.success) {
+            const a = data.article;
+            const img = a.image ? '<img src="' + (a.image.startsWith('/') ? a.image : '/' + a.image) + '" alt="' + a.title + '" class="article__image">' : '';
+            container.innerHTML = '<article class="article">'
+                + '<header class="article__header">'
+                + '<time class="article__date">' + formatDate(a.date) + '</time>'
+                + '<h1 class="article__title">' + a.title + '</h1>'
+                + '<p class="article__author">Von ' + a.author + '</p>'
+                + '</header>'
+                + img
+                + '<div class="article__content">' + a.content + '</div>'
+                + '<footer class="article__footer">'
+                + '<a href="/blog" class="btn btn--outline">&larr; Zurück zum Blog</a>'
+                + '</footer>'
+                + '</article>';
+            document.title = a.title + ' | screensolutions Blog';
+        } else {
+            container.innerHTML = '<div class="article-not-found"><h2>Artikel nicht gefunden</h2><p>Dieser Artikel existiert nicht oder wurde entfernt.</p><a href="/blog" class="btn btn--outline">Zum Blog</a></div>';
+        }
+    } catch(e) {
+        container.innerHTML = '<p>Artikel konnte nicht geladen werden.</p>';
+    }
+}

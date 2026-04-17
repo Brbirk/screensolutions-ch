@@ -1,0 +1,61 @@
+<!-- Kontaktformular (global) -->
+<section class="contact section" id="kontakt">
+    <div class="container">
+        <h2 class="fade-in fade-in--hidden">Kontaktanfrage</h2>
+        <?php if (isset($activePage) && $activePage === 'angebot'): ?>
+        <p class="fade-in fade-in--hidden">Ich interessiere mich für folgendes Angebot:</p>
+        <?php else: ?>
+        <p class="fade-in fade-in--hidden">Du möchtest wissen, wie KI-generierter Content für dein Unternehmen aussehen könnte? Schreib uns – wir beraten dich unverbindlich und zeigen dir konkrete Möglichkeiten für deine Marke.</p>
+        <?php endif; ?>
+        <form class="contact__form fade-in fade-in--hidden" data-captcha-answer="<?php echo $a = rand(1,5); $b = rand(1,5); echo ($a+$b); ?>" method="post" action="/danke">
+            <?php if (isset($activePage) && $activePage === 'angebot'): ?>
+            <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+                <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
+                    <input type="radio" name="angebot" value="Starter – CHF 390.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Starter</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 390.- / Monat</span></span>
+                </label>
+                <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
+                    <input type="radio" name="angebot" value="Pro – CHF 790.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Pro</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 790.- / Monat</span></span>
+                </label>
+                <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
+                    <input type="radio" name="angebot" value="Diamond – CHF 1200.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Diamond</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 1200.- / Monat</span></span>
+                </label>
+            </div>
+            <?php endif; ?>
+            <div class="form-row">
+                <input type="text" name="name" class="form-input" placeholder="Name" required>
+                <input type="email" name="email" class="form-input" placeholder="E-Mail-Adresse" required>
+            </div>
+            <textarea name="message" class="form-textarea" placeholder="Nachricht" required></textarea>
+            <div class="captcha">
+                <span><?php echo $a; ?> + <?php echo $b; ?> =</span>
+                <input type="text" name="captcha" required>
+            </div>
+            <button type="submit" class="btn btn--primary">Senden</button>
+        </form>
+    </div>
+</section>
+
+    <footer class="footer">
+    <div class="footer__canvas-wrap">
+      <canvas id="footer-wave-canvas"></canvas>
+    </div>
+    <div class="container footer__content">
+      <p class="footer__tagline">Visionen sichtbar machen</p>
+      <p class="footer__sub">Kreativität trifft Technologie – wir gestalten die visuelle Zukunft deiner Marke mit der Kraft künstlicher Intelligenz.</p>
+    </div>
+    <div class="footer__contact">
+      <div class="container">
+        <p>screensolutions gmbh<br>Hauptstrasse 15<br>9556 Affeltrangen</p>
+        <p class="footer__contact__tel">Tel: <a href="tel:+41763441794">076 344 17 94</a></p>
+      </div>
+    </div>
+  </footer>
+
+    <script src="/js/main.js"></script>
+    <?php if (isset($extraScripts)) echo $extraScripts; ?>
+
+</body>
+</html>

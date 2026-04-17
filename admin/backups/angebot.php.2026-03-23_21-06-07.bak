@@ -1,0 +1,107 @@
+<?php
+$pageTitle = 'Angebot - Unsere Dienstleistungen | screensolutions';
+$pageDescription = 'Unsere Angebote: Starter, Pro und Diamond. KI, Webdesign und Fotografie aus einer Hand.';
+$pageCanonical = 'https://screensolutions.ch/angebot';
+$activePage = 'angebot';
+include '_header.php';
+?>
+
+<section class="hero" style="min-height: auto; padding: 140px 0 80px; display: block;">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
+        <h1 class="hero__title">Unser Angebot</h1>
+        <p style="font-size: 1.2rem; opacity: 0.9; margin-top: 15px; color: rgba(255,255,255,0.85);">Wähle das passende Paket für dein Unternehmen – von der soliden Basis bis zur umfassenden Premium-Lösung.</p>
+    </div>
+
+    <div style="max-width: 1200px; margin: 60px auto 0; padding: 0 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch;">
+
+            <!-- Starter -->
+            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 16px; padding: 40px 30px; text-align: center; border: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column;">
+                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-bottom: 10px;">Starter</h3>
+                <div style="margin: 20px 0;">
+                    <span style="font-size: 3rem; font-weight: 700; color: #fff;">CHF 390.-</span>
+                    <span style="display: block; color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-top: 5px;">/ Monat</span>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 30px 0; text-align: left; flex-grow: 1;">
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Nutzung eines unserer KI Agentur-Models nach Wahl
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> 6 Bilder / Monat für Social Media
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> 6 Texte / Monat für Social Media
+                    </li>
+                    <li style="padding: 10px 0; color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> 1 Website Blogpost mit Bild
+                    </li>
+                </ul>
+                <a href="/agentur" style="display: inline-block; padding: 14px 40px; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Jetzt anfragen</a>
+            </div>
+
+            <!-- Pro (Empfohlen) -->
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 16px; padding: 40px 30px; text-align: center; border: 1px solid rgba(255,255,255,0.25); display: flex; flex-direction: column; transform: scale(1.03); box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                <div style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; padding: 6px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin: 0 auto 15px; width: fit-content;">Empfohlen</div>
+                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-bottom: 10px;">Pro</h3>
+                <div style="margin: 20px 0;">
+                    <span style="font-size: 3rem; font-weight: 700; color: #fff;">CHF 790.-</span>
+                    <span style="display: block; color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-top: 5px;">/ Monat</span>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 30px 0; text-align: left; flex-grow: 1;">
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Alles aus Starter, plus:
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Bis 10 Seiten + Blog
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> KI-Chatbot Integration
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Erweiterte SEO & Analytics
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Social Media Anbindung
+                    </li>
+                    <li style="padding: 10px 0; color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Monatlicher Support (5h)
+                    </li>
+                </ul>
+                <a href="/agentur" style="display: inline-block; padding: 14px 40px; background: #fff; color: #1a1a2e; border: 2px solid #fff; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Jetzt anfragen</a>
+            </div>
+
+            <!-- Diamond -->
+            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 16px; padding: 40px 30px; text-align: center; border: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column;">
+                <h3 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-bottom: 10px;">Diamond</h3>
+                <div style="margin: 20px 0;">
+                    <span style="font-size: 3rem; font-weight: 700; color: #fff;">CHF 1200.-</span>
+                    <span style="display: block; color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-top: 5px;">/ Monat</span>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 30px 0; text-align: left; flex-grow: 1;">
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Alles aus Pro, plus:
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Unbegrenzte Seiten
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> E-Commerce / Online-Shop
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Professionelles Fotoshooting
+                    </li>
+                    <li style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> KI-Automatisierungen
+                    </li>
+                    <li style="padding: 10px 0; color: #fff; display: flex; align-items: center;">
+                        <span style="color: #4CAF50; margin-right: 10px; font-weight: bold;">&#10003;</span> Priority Support (10h)
+                    </li>
+                </ul>
+                <a href="/agentur" style="display: inline-block; padding: 14px 40px; background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Jetzt anfragen</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<?php include '_footer.php'; ?>

@@ -1,0 +1,37 @@
+<?php
+$pageTitle = 'Agentur - screensolutions | KI mit Wirkung';
+$pageDescription = 'screensolutions verbindet KI, Fotografie und Webdesign. Erfahre mehr ueber unsere Agentur und unser Team.';
+$pageCanonical = 'https://screensolutions.ch/agentur';
+$activePage = 'agentur';
+include '_header.php';
+?>
+
+<!-- HERO / ABOUT -->
+  <section class="hero hero--firma">
+    <div class="hero__content">
+      <div class="about-hero">
+        <div>
+          <h1>Geschichte und Kontakt</h1>
+          <p>Die screensolutions gmbh wurde im Jahr 2000 gegründet und entwickelte sich rasch zu einem erfolgreichen Dienstleistungspartner. In den letzten Jahren haben wir unseren Fokus konsequent weiterentwickelt: Heute konzentrieren wir uns stark auf die visuelle Bildgestaltung mit Künstlicher Intelligenz (KI).</p>
+          <p>Wir kombinieren Erfahrung aus Fotografie, visueller Kommunikation und Digitaltechnik mit den neuesten KI-Tools, um moderne, wirkungsvolle und hochwertige Bildwelten zu kreieren – für Unternehmen, Marken und Projekte, die visuell herausstechen möchten.</p>
+          <p class="hero__cta">Setzen Sie sich mit uns in Verbindung für ein kostenloses Erstgespräch.</p>
+        </div>
+        <div class="about__portrait">
+          <img loading="lazy" src="images/bruno-birkhofer-square.jpg" alt="Bruno Birkhofer – Geschäftsführer">
+          <h3>Bruno Birkhofer</h3>
+          <p>Geschäftsführer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM (shared include) -->
+  <div id="contact-form" data-section-class="contact section section--light"></div>
+  <script src="js/contact-form.js"></script>
+
+    <!-- CONTACT INFO -->
+  
+
+  <!-- FOOTER -->
+
+<?php include '_footer.php'; ?>

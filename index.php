@@ -1,0 +1,252 @@
+<?php
+$pageTitle = 'screensolutions - KI, Fotografie & Webdesign mit Wirkung';
+$pageDescription = 'screensolutions verbindet KI, Fotografie und Webdesign zu visuellen Loesungen mit Wirkung. Professionelle Websites, Shootings und KI-Beratung aus einer Hand.';
+$pageCanonical = 'https://screensolutions.ch';
+$activePage = 'home';
+$extraScripts = '<script src="/js/blog.js?v=3"></script>';
+include '_header.php';
+?>
+
+<!-- HERO SECTION -->
+  <section class="hero hero--home">
+    <div class="hero__content">
+      <div class="hero__grid">
+        <div>
+          <h1 class="hero__title">Professionelle Werbebilder.
+Ohne Fotoshooting. Ohne Wartezeit.</h1>
+          <p class="hero__subtitle">Professionelle Werbebilder und Social-Media-Content mit KI-Models – ohne Fotoshooting, ohne Modelkosten und ohne komplizierte Organisation</p>
+          <p class="hero__text">Visuelle Inhalte & Werbung mit KI – für KMU, die sichtbar sein wollen. Moderner Content. Klare Botschaften. Mehr Wirkung.</p>
+          <div class="hero__buttons">
+          <a href="#kontakt" class="btn btn--primary">Kostenlose Beratung</a>
+          <a href="#showcase" class="btn btn--secondary">Beispiele ansehen</a>
+          </div>
+        </div>
+        <div class="model-cards">
+          <div class="model-cards__video">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/Yckqe8a_zoQ" title="ANNA & ALEX | Deine KI Markenbotschafter" allowfullscreen></iframe>
+            </div>
+          </div>
+          <!-- Anna -->
+          <div class="model-card">
+            <img loading="lazy" src="images/anna-square.jpg" alt="Anna – KI Model" class="model-card__image">
+            <h3 class="model-card__name">Anna</h3>
+            <p class="model-card__role">KI Model</p>
+            <p class="model-card__desc">Sympathisch, nahbar und überraschend vielseitig. Anna ist kein klassisches Model – sie ist eine KI-generierte Markenbotschafterin, entwickelt für authentische Produktwerbung mit echtem Wiedererkennungswert. Perfekt für Social Media, Kampagnen und Content, der auffällt – ohne aufwendige Shootings.</p>
+          </div>
+          <!-- Alex -->
+          <div class="model-card">
+            <img loading="lazy" src="images/alex-square.jpg" alt="Alex – KI Model" class="model-card__image">
+            <h3 class="model-card__name">Alex</h3>
+            <p class="model-card__role">KI Model</p>
+            <p class="model-card__desc">Stilvoll, wandelbar und immer perfekt inszeniert. Selbstbewusst, stilsicher und immer on point. Alex verkörpert Professionalität und moderne Ästhetik – als KI-generiertes Model steht er für hochwertige Markenwerbung, die sofort Vertrauen schafft. Ideal für Business-Content, Lifestyle-Kampagnen und Premium-Werbung – Alex bringt jedes Produkt mit der richtigen Ausstrahlung in Szene.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <
+
+  <!-- THREE COLUMNS: Problem / Solution / Benefits -->
+  <section class="three-col section section--light">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="three-col__item fade-in">
+          <div class="three-col__heading-row">
+            <div class="three-col__icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Dein Unternehmen ist gut – aber sieht man das auch?</h3>
+          </div>
+          <p>Du weisst, dass du präsent sein müsstest. Auf Social Media. Auf deiner Website. In der Werbung.</p>
+          <p><strong>Aber ehrlich:</strong></p>
+          <ul>
+            <li>Du hast keine Zeit, ständig Content zu erstellen</li>
+            <li>Social Media fühlt sich nach Pflicht statt Nutzen an</li>
+            <li>Agenturen sind teuer und oft weit weg von deiner Realität</li>
+            <li>KI klingt spannend – ist aber kompliziert und überfordernd</li>
+          </ul>
+          <p><strong><em>Am Schluss passiert nichts!</em></strong></p>
+            <a href="#kontakt" class="btn btn--primary" style="margin-top: 24px;">Das ändern wir jetzt</a>
+        </div>
+        <div class="three-col__item fade-in">
+          <div class="three-col__heading-row">
+            <div class="three-col__icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Genau hier kommen wir ins Spiel</h3>
+          </div>
+          <p>Wir erstellen für dich visuelle Inhalte und Werbung mit KI, die professionell aussehen, zu deinem Unternehmen passen und deine Kunden wirklich ansprechen.</p>
+          <ul>
+            <li>Nicht technisch.</li>
+            <li>Nicht austauschbar.</li>
+            <li>Sondern klar, emotional und verkaufsstark.</li>
+          </ul>
+        </div>
+        <div class="three-col__item fade-in">
+          <div class="three-col__heading-row">
+            <div class="three-col__icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>Was du bei uns bekommst</h3>
+          </div>
+          <p><strong>Inhalte, die auffallen</strong><br>Bilder, Visuals und Werbemotive, die nicht wie Stockfotos aussehen.</p>
+          <p><strong>Eine klare Bildsprache</strong><br>Ein einheitlicher Look, der zu deiner Marke passt – und wiedererkannt wird.</p>
+          <p><strong>Weniger Aufwand für dich</strong><br>Kein Herumprobieren, kein KI-Chaos, kein Zeitverlust.</p>
+          <p><strong>Ergebnisse statt Experimente</strong><br>Wir denken immer vom Ziel her: Sichtbarkeit, Vertrauen, Verkauf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ANNA & ALEX -->
+  <section id="showcase" class="showcase section">
+    <div class="container" style="text-align:center; margin-bottom: 3rem;">
+      <h2 style="color:#fff; font-size:2.5rem; margin-bottom:1rem;">So könnte dein nächster Content aussehen</h2>
+      <p style="color:rgba(255,255,255,0.7); font-size:1.1rem;">Professionelle Werbebilder mit KI – bereit für Social Media, Website und Print.</p>
+    </div>
+    <div class="container">
+      <div class="showcase__layout fade-in">
+        <div>
+          <img loading="lazy" src="images/anna-alex-square.jpg" alt="Anna und Alex – KI Models" class="showcase__layout-image">
+        </div>
+        <div>
+          <div class="showcase__grid">
+            <div class="showcase__item">
+              <img loading="lazy" src="images/noctara.png" alt="Anna für NOCTARA Coffee">
+              <div class="showcase__label">Anna für NOCTARA Coffee</div>
+            </div>
+            <div class="showcase__item">
+              <img loading="lazy" src="images/vantor.png" alt="Alex für VANTOR">
+              <div class="showcase__label">Alex für VANTOR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="showcase__text fade-in">
+        Anna und Alex stehen für Ausstrahlung, Stil und eine starke visuelle Präsenz. Sie verkörpern moderne Markenwerte wie Innovation, Selbstbewusstsein und Nahbarkeit – perfekt, um Produkte oder Dienstleistungen authentisch in Szene zu setzen.
+        Beide sind vielseitig einsetzbar: von Social Media Kampagnen über Imagefilme bis hin zu Werbefotografie. Sie transportieren Emotion, schaffen Wiedererkennungswert und geben deiner Marke ein Gesicht mit Charakter.
+      </p>
+      <p class="showcase__text fade-in">
+        Und das Beste: Anna und Alex sind nur der Anfang. Wir verfügen über eine breite Auswahl weiterer Modelle mit unterschiedlichen Looks, Altersgruppen und Ausstrahlungen. So finden wir für jede Marke und jede Zielgruppe die passende Persönlichkeit – individuell, flexibel und professionell inszeniert.
+      </p>
+    </div>
+      <div class="container" style="text-align:center; margin-top: 3rem;">
+      <a href="#kontakt" class="btn btn--primary">Jetzt Beratung anfragen</a>
+    </div>
+</section>
+
+  <!-- KI STATEMENT -->
+  <section class="ki-statement section">
+    <div class="container">
+      <h2 class="fade-in">KI ist nur das Werkzeug – nicht die Lösung</h2>
+      <div class="ki-statement__content fade-in">
+        <div>
+          <p>KI kann viel. Aber ohne Erfahrung, Gefühl für Bilder und Verständnis für Werbung bleibt sie beliebig.</p>
+          <p>screensolutions gmbh verbindet:</p>
+          <ul class="ki-statement__list">
+            <li>Jahrelange visuelle Erfahrung</li>
+            <li>Marketing-Denken</li>
+            <li>Erfahrung mit modernsten KI-Technologien</li>
+          </ul>
+          <p>So entsteht Content, der menschlich wirkt – nicht künstlich.</p>
+        </div>
+        <div>
+          <p>Als KI Agentur in der Schweiz unterstützen wir KMU dabei, mit visueller Werbung und professionellem Content sichtbar zu werden – effizient, bezahlbar und mit echtem Wiedererkennungswert.</p>
+        </div>
+      </div>
+    </div>
+      <div class="container" style="text-align:center; padding-bottom: 2rem;">
+      <a href="#kontakt" class="btn btn--primary">Kostenlose Erstberatung</a>
+    </div>
+</section>
+
+  <!-- FAQ SECTION -->
+  
+<!-- BLOG LATEST -->
+<section class="blog-section" id="blog">
+    <h2 class="blog-section__title">Aktuelles aus dem Blog</h2>
+    <p class="blog-section__subtitle">Einblicke in KI, Fotografie und Webdesign</p>
+    <div id="blog-latest"></div>
+    </section>
+<script src="js/blog.js?v=3"></script>
+<script>loadLatestArticles('blog-latest', 6);</script>
+
+<section class="faq section" id="faq">
+    <div class="container">
+      <h2 class="fade-in">Häufig gestellte Fragen</h2>
+      <p class="faq__intro fade-in">Du hast Fragen zu unserer Arbeitsweise, unseren KI-Models oder den Möglichkeiten von KI-generiertem Content? Hier findest du Antworten.</p>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Was genau macht screensolutions?</div>
+        <div class="faq__answer">screensolutions ist eine KI Agentur aus der Schweiz, die sich auf visuelle Werbung und Content Creation mit künstlicher Intelligenz spezialisiert hat. Wir erstellen professionelle Bilder, Videos und Werbemotive für KMU – schnell, bezahlbar und in hoher Qualität. Dabei setzen wir auf eigene KI-Models wie Anna und Alex, die deine Marke authentisch repräsentieren.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Wer sind Anna und Alex?</div>
+        <div class="faq__answer">Anna und Alex sind unsere KI-generierten Markenbotschafter. Sie sehen aus wie echte Models, sind aber vollständig digital erschaffen. Das bedeutet: keine Terminkoordination, keine Reisekosten, keine Nutzungsrechte-Probleme. Sie sind jederzeit verfügbar und können für jede Branche, jedes Produkt und jeden Stil angepasst werden.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Für wen eignet sich KI-generierter Content?</div>
+        <div class="faq__answer">Unser Angebot richtet sich vor allem an kleine und mittlere Unternehmen (KMU) in der Schweiz, die professionell auftreten möchten, aber nicht das Budget für aufwendige Fotoshootings oder grosse Werbeagenturen haben. Ob Onlineshop, Dienstleister, Gastronomie oder Handwerk – KI-Content funktioniert branchenübergreifend.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Wie läuft eine Zusammenarbeit ab?</div>
+        <div class="faq__answer">Ganz einfach: Du schreibst uns über das Kontaktformular oder per E-Mail. Wir besprechen deine Wünsche, erstellen ein Konzept und liefern dir innerhalb weniger Tage fertige Inhalte – Bilder, Social-Media-Posts oder Werbemotive. Du brauchst dich um nichts zu kümmern.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Was kostet KI-generierter Content?</div>
+        <div class="faq__answer">Deutlich weniger als ein klassisches Fotoshooting mit echten Models. Dank KI-Technologie können wir hochwertige Ergebnisse zu einem Bruchteil der üblichen Kosten liefern. Die genauen Preise hängen vom Umfang ab – kontaktiere uns für ein unverbindliches Angebot.</div>
+      </div>
+
+      <div class="faq__item fade-in">
+        <div class="faq__question">Sieht man, dass die Bilder mit KI erstellt wurden?</div>
+        <div class="faq__answer">In den meisten Fällen: nein. Unsere KI-generierten Bilder sind so hochwertig, dass sie von klassischer Fotografie kaum zu unterscheiden sind. Dazu kommt unsere jahrelange Erfahrung in visueller Gestaltung und Marketing – wir wissen, worauf es ankommt, damit Bilder nicht nur gut aussehen, sondern auch verkaufen.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM (shared include) -->
+  <script src="js/contact-form.js"></script>
+
+    <!-- CLIENT LOGOS MARQUEE -->
+  <section class="clients">
+    <div class="clients__track">
+      <img loading="lazy" src="images/stellen-zuerich-logo.png" alt="Stellen Zürich">
+      <img loading="lazy" src="images/logo-tinderfoto.png" alt="Tinderfoto">
+      <img loading="lazy" src="images/logo-ditari.png" alt="Ditari">
+      <img loading="lazy" src="images/stellen-bern-logo-kl.png" alt="Stellen Bern">
+      <img loading="lazy" src="images/mwg_logo-.png" alt="Merwag">
+      <img loading="lazy" src="images/jobs-logo.png" alt="Jobs.ch">
+      <img loading="lazy" src="images/logo-bruno-birkhhofer.png" alt="Bruno Birkhofer">
+      <img loading="lazy" src="images/logo-bagno-sasso.jpg" alt="Bagno Sasso">
+      <img loading="lazy" src="images/Hohentwiel-verein.jpg" alt="Verein Hohentwiel">
+      <img loading="lazy" src="images/kp.png" alt="Kanalprofis">
+      <img loading="lazy" src="images/arbon-classics.jpg" alt="Arbon Classics">
+      <img loading="lazy" src="images/schuelfoti-logo-sw.png" alt="Schuelfoti GmbH">
+      <img loading="lazy" src="images/logo-handelsrichter.png" alt="Handelsrichter">
+      <img loading="lazy" src="images/glbs.png" alt="GLOBUS">
+      <img loading="lazy" src="images/LogoFrei.jpg" alt="Frei Patentanwaltsbüro">
+      <img loading="lazy" src="images/logo-rolf-senti.jpg" alt="Rolf Senti">
+      <!-- Duplicate for seamless loop -->
+      <img loading="lazy" src="images/stellen-zuerich-logo.png" alt="Stellen Zürich">
+      <img loading="lazy" src="images/logo-tinderfoto.png" alt="Tinderfoto">
+      <img loading="lazy" src="images/logo-ditari.png" alt="Ditari">
+      <img loading="lazy" src="images/stellen-bern-logo-kl.png" alt="Stellen Bern">
+      <img loading="lazy" src="images/mwg_logo-.png" alt="Merwag">
+      <img loading="lazy" src="images/jobs-logo.png" alt="Jobs.ch">
+      <img loading="lazy" src="images/logo-bruno-birkhhofer.png" alt="Bruno Birkhofer">
+      <img loading="lazy" src="images/logo-bagno-sasso.jpg" alt="Bagno Sasso">
+      <img loading="lazy" src="images/Hohentwiel-verein.jpg" alt="Verein Hohentwiel">
+      <img loading="lazy" src="images/kp.png" alt="Kanalprofis">
+      <img loading="lazy" src="images/arbon-classics.jpg" alt="Arbon Classics">
+      <img loading="lazy" src="images/schuelfoti-logo-sw.png" alt="Schuelfoti GmbH">
+      <img loading="lazy" src="images/logo-handelsrichter.png" alt="Handelsrichter">
+      <img loading="lazy" src="images/glbs.png" alt="GLOBUS">
+      <img loading="lazy" src="images/LogoFrei.jpg" alt="Frei Patentanwaltsbüro">
+      <img loading="lazy" src="images/logo-rolf-senti.jpg" alt="Rolf Senti">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+<?php include '_footer.php'; ?>

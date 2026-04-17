@@ -1,0 +1,83 @@
+<?php
+$pageTitle = 'Angebot - Unsere Dienstleistungen | screensolutions';
+$pageDescription = 'Professionelle Fotoshootings fuer Unternehmen, Produkte und Portraits. Visuelle Kommunikation mit Wirkung.';
+$pageCanonical = 'https://screensolutions.ch/angebot';
+$activePage = 'angebot';
+include '_header.php';
+?>
+
+<!-- HERO -->
+  <section class="hero hero--fotografie">
+    <div class="hero__content">
+      <div class="hero__grid">
+        <div>
+          <h1 class="hero__title">Wo Worte enden, beginnt unsere Bildsprache.</h1>
+        </div>
+        <div>
+          <p class="hero__subtitle">Bilder erzählen Geschichten, wecken Emotionen und halten Sekunden für immer fest. In der Online-Welt gewinnt, wer in einem Augenblick überzeugt – mit Bildern, die bleiben.</p>
+          <p class="hero__text">Genau diese Augenblicke suchen wir: echt, intensiv und voller Ausdruck.</p>
+          <p class="hero__text">Denn in der schnelllebigen Online-Welt entscheidet sich Interesse in Sekunden – und zwar nicht durch Text, sondern durch Bilder, die hängen bleiben.</p>
+          <p class="hero__text">In unserem 160 Quadratmeter grossem Fotostudio sind wir mit modernster Lichtanlage für alle Projekte gerüstet. Natürlich haben wir auch ein vollumfänglich mobiles Equipment mit Lastenanhänger zur Verfügung um Ihren Auftrag auch bei Ihnen in der Firma ausführen zu können. Portraits der Mitarbeiter, Fotografie Ihrer Maschinen, Räume, Aussenanlagen und Gebäude können wir so speditiv und stressfrei gleich bei Ihnen vor Ort machen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="grid grid--3">
+        <div class="service-card fade-in">
+          <div class="service-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          </div>
+          <h3>Bildbearbeitung</h3>
+          <p>Die Verbesserung der Qualität bei Bildern reicht von der Anpassung von Farben, über die Kontrast Optimierung bis hin zur Entfernung störender Elemente. Bis dass ein Bild in sich perfekt wird.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z"/></svg>
+          </div>
+          <h3>Bildretusche</h3>
+          <p>Damit das schöne Wesentliche in den Vordergrund gestellt werden kann, sind Retouchen in Gesicht und Formanpassungen an Körpern eine Frage der Ehre.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Spezialaufträge</h3>
+          <p>Auftragswünsche wie Composings (Fotomontagen) oder dem Entfernen von einzelnen Personen aus Gruppenaufnahmen bis hin zur kompletten Umgestaltung von Aufnahmen – es sind Spezialaufträge aller Art, die unseren Alltag bereichern.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          </div>
+          <h3>Werbe- und Lifestyle-Fotografie</h3>
+          <p>In unserer schnelllebigen Zeit setzt man immer mehr auf Bilder, um innerhalb von Sekunden Emotionen auszulösen, Kaufreize zu schaffen und die richtige «Message» zu vermitteln. Ihr Produkt oder Ihre Dienstleistung braucht Bildmaterial mit dem «Wow»-Effekt und einer klaren Message. Die Inszenierung Ihrer Firma steht im Zentrum unserer Fotografie. Das Bild soll berühren, indem es mit Emotionen eine Geschichte erzählt, die Worte nicht hervorbringen.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <h3>Produkte-Fotografie</h3>
+          <p>Der Verkaufserfolg Ihrer Produkte hängt sehr stark vom guten Bildmaterial ab. Dabei kann jedes Produkt noch besser, in einem noch schöneren Winkel und einer noch interessanteren Perspektive professionell abgelichtet werden. Auch die richtige Lichtsetzung entscheidet, ob Ihr Produkt einen Käufer zum Einkauf animiert. Lassen Sie Ihre Produkte für Ihre Prospekte oder Ihren Online-Shop in einem einheitlichen Stil von uns ablichten.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3>Fashion-Fotografie</h3>
+          <p>Kleidung und Accessoires von der schönsten Seite darzustellen, ist unsere Leidenschaft und bringt Ihnen den gewünschten Erfolg. Fotografisch und technisch können Sie von uns Höchstleistungen erwarten. Für Ihren Auftrag stellen wir ein Team an Models, Stylisten und Make-up-Artisten zusammen, das der bunten Welt der Werbung seinen Stempel aufdrückt; oder: Wir halten es für das kleinere Budget einfach, aber nicht weniger attraktiv oder effektiv.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+<?php include '_footer.php'; ?>

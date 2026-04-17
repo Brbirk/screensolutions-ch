@@ -1,0 +1,72 @@
+<?php
+// === KONTAKTFORMULAR - E-Mail Versand ===
+// Empfänger
+$to = 'info@screensolutions.ch';
+
+// Nur POST-Anfragen erlauben
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Methode nicht erlaubt.']);
+    exit;
+}
+
+// Daten auslesen und bereinigen
+$name    = isset($_POST['name'])    ? trim(strip_tags($_POST['name']))    : '';
+$email   = isset($_POST['email'])   ? trim(strip_tags($_POST['email']))   : '';
+$message = isset($_POST['message']) ? trim(strip_tags($_POST['message'])) : '';
+$captcha = isset($_POST['captcha']) ? trim($_POST['captcha'])             : '';
+$captcha_answer = isset($_POST['captcha_answer']) ? trim($_POST['captcha_answer']) : '';
+$page    = isset($_POST['page'])    ? trim(strip_tags($_POST['page']))    : 'Unbekannt';
+
+// Validierung
+$errors = [];
+
+if (empty($name)) {
+    $errors[] = 'Bitte gib deinen Namen ein.';
+}
+
+if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+}
+
+if (empty($message)) {
+    $errors[] = 'Bitte schreib eine Nachricht.';
+}
+
+if ($captcha !== $captcha_answer) {
+    $errors[] = 'Die Rechenaufgabe ist nicht korrekt.';
+}
+
+// Bei Fehlern: JSON-Antwort
+if (!empty($errors)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => implode(' ', $errors)]);
+    exit;
+}
+
+// E-Mail zusammenstellen
+$subject = "Kontaktanfrage von $name (via $page)";
+
+$body  = "Neue Kontaktanfrage über screensolutions.ch\n";
+$body .= "==========================================\n\n";
+$body .= "Name:    $name\n";
+$body .= "E-Mail:  $email\n";
+$body .= "Seite:   $page\n\n";
+$body .= "Nachricht:\n";
+$body .= "----------\n";
+$body .= "$message\n";
+
+$headers  = "From: $name <$email>\r\n";
+$headers .= "Reply-To: $email\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$headers .= "X-Mailer: screensolutions-kontaktformular";
+
+// E-Mail senden
+$sent = mail($to, $subject, $body, $headers);
+
+if ($sent) {
+    echo json_encode(['success' => true, 'message' => 'Vielen Dank für deine Nachricht! Wir melden uns bald bei dir.']);
+} else {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Leider konnte die Nachricht nicht gesendet werden. Bitte versuche es später erneut oder schreibe direkt an info@screensolutions.ch']);
+}

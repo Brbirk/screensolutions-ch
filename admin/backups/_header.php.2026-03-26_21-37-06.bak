@@ -1,0 +1,47 @@
+<?php
+if (!isset($pageTitle)) $pageTitle = 'screensolutions - KI mit Wirkung';
+if (!isset($pageDescription)) $pageDescription = 'screensolutions verbindet KI, Fotografie und Webdesign zu visuellen Loesungen mit Wirkung.';
+if (!isset($pageCanonical)) $pageCanonical = 'https://screensolutions.ch';
+if (!isset($pageOgImage)) $pageOgImage = 'https://screensolutions.ch/images/og-image-screensolutions.jpg';
+if (!isset($activePage)) $activePage = '';
+if (!isset($extraHead)) $extraHead = '';
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars($pageTitle); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($pageDescription); ?>">
+    <link rel="canonical" href="<?php echo $pageCanonical; ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($pageTitle); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($pageDescription); ?>">
+    <meta property="og:image" content="<?php echo $pageOgImage; ?>">
+    <meta property="og:url" content="<?php echo $pageCanonical; ?>">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/css/style.css?v=29">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <?php echo $extraHead; ?>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__inner">
+            <a href="/" class="header__logo">
+                <img src="/images/logo-screensolutions-white-ki.png" alt="screensolutions - KI mit Wirkung" class="logo-img">
+            </a>
+            <nav class="nav">
+                <a href="/" class="nav__link<?php echo ($activePage === 'home') ? ' nav__link--active' : ''; ?>">KI</a>
+                <a href="/markenbotschafter" class="nav__link<?php echo ($activePage === 'markenbotschafter') ? ' nav__link--active' : ''; ?>">Markenbotschafter</a>
+                <a href="/angebot" class="nav__link<?php echo ($activePage === 'angebot') ? ' nav__link--active' : ''; ?>">Angebot</a>
+                <a href="/webdesign" class="nav__link<?php echo ($activePage === 'webdesign') ? ' nav__link--active' : ''; ?>">Webdesign</a>
+                <a href="/agentur" class="nav__link<?php echo ($activePage === 'agentur') ? ' nav__link--active' : ''; ?>">Agentur</a>
+                <a href="/blog" class="nav__link<?php echo ($activePage === 'blog') ? ' nav__link--active' : ''; ?>">Blog</a>
+            </nav>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>

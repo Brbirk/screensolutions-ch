@@ -1,0 +1,17 @@
+# robots.txt for screensolutions.ch
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://screensolutions.ch/sitemap.xml
+
+# Admin-Bereich blockieren
+Disallow: /admin/
+Disallow: /uploads/
+Disallow: /ALTE_WEBSITE/
+
+# Danke-Seite nicht indexieren
+Disallow: /danke
+
+# Crawl-Delay (optional, fuer schonenden Crawl)
+Crawl-delay: 1

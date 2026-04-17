@@ -1,0 +1,26 @@
+<?php
+$pageTitle = 'Blog - KI, Fotografie & Webdesign Insights | screensolutions';
+$pageDescription = 'Einblicke in KI, Fotografie und Webdesign. Aktuelle Trends und Projekte von screensolutions.';
+$pageCanonical = 'https://screensolutions.ch/blog';
+$activePage = 'blog';
+$extraScripts = '<script src="/js/blog.js?v=4"></script>';
+include '_header.php';
+?>
+
+<section class="hero hero--firma" style="min-height: 30vh; padding: 120px 0 40px;">
+    <div class="hero__content">
+        <h1>Blog</h1>
+        <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; margin-top: 1rem;">Einblicke in KI, Fotografie und Webdesign</p>
+    </div>
+</section>
+
+<section class="blog-section">
+    <div id="blog-listing"></div>
+</section>
+
+<script>loadBlogListing('blog-listing');</script>
+
+
+<!-- FOOTER -->
+
+<?php include '_footer.php'; ?>

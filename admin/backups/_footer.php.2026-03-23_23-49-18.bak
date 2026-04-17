@@ -1,0 +1,141 @@
+<!-- Kontaktformular (global) -->
+<section class="contact section" id="kontakt">
+    <div class="container">
+        <h2 class="fade-in fade-in--hidden">Kontaktanfrage</h2>
+        <?php if (isset($activePage) && $activePage === 'angebot'): ?>
+        <p class="fade-in fade-in--hidden">Ich interessiere mich f&uuml;r folgendes Angebot:</p>
+        <?php else: ?>
+        <p class="fade-in fade-in--hidden">Du m&ouml;chtest wissen, wie KI-generierter Content f&uuml;r dein Unternehmen aussehen k&ouml;nnte? Schreib uns &ndash; wir beraten dich unverbindlich und zeigen dir konkrete M&ouml;glichkeiten f&uuml;r deine Marke.</p>
+        <?php endif; ?>
+        <?php $a = rand(1,5); $b = rand(1,5); ?>
+        <form class="contact__form fade-in fade-in--hidden" data-captcha-answer="<?php echo ($a+$b); ?>" id="contactForm">
+            <?php if (isset($activePage) && $activePage === 'angebot'): ?>
+            <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+                <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
+                    <input type="radio" name="angebot" value="Starter &ndash; CHF 390.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Starter</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 390.- / Monat</span></span>
+                </label>
+                <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
+                    <input type="radio" name="angebot" value="Pro &ndash; CHF 790.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Pro</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 790.- / Monat</span></span>
+                </label>
+                <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
+                    <input type="radio" name="angebot" value="Diamond &ndash; CHF 1200.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Diamond</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 1200.- / Monat</span></span>
+                </label>
+            </div>
+            <?php endif; ?>
+            <div class="form-row">
+                <input type="text" name="name" class="form-input" placeholder="Name" required>
+                <input type="email" name="email" class="form-input" placeholder="E-Mail-Adresse" required>
+            </div>
+            <textarea name="message" class="form-textarea" placeholder="Nachricht" required></textarea>
+            <div class="captcha">
+                <span><?php echo $a; ?> + <?php echo $b; ?> = </span>
+                <input type="text" name="captcha" required>
+                <input type="hidden" name="captcha_answer" value="<?php echo ($a+$b); ?>">
+            </div>
+            <button type="submit" class="btn btn--primary">Senden</button>
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer__wave">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,40 C360,100 1080,0 1440,60 L1440,100 L0,100 Z" fill="currentColor"/>
+        </svg>
+    </div>
+    <div class="footer__content">
+        <p class="footer__tagline"><strong>Visionen sichtbar machen</strong></p>
+        <p class="footer__text">Kreativit&auml;t trifft Technologie &ndash; wir gestalten die visuelle Zukunft deiner Marke mit der<br>Kraft k&uuml;nstlicher Intelligenz.</p>
+    </div>
+    <div class="footer__bottom">
+        <p class="footer__company">screensolutions gmbh</p>
+        <p class="footer__address">Hauptstrasse 1 &middot; 9556 Affeltrangen &middot; Schweiz</p>
+        <p class="footer__links">
+            <a href="mailto:info@screensolutions.ch">info@screensolutions.ch</a>
+        </p>
+        <p class="footer__copy"><?php echo '&copy; ' . date('Y'); ?> screensolutions gmbh</p>
+    </div>
+</footer>
+
+<script src="/js/main.js?v=4"></script>
+<script>
+// Contact form XHR submission
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll to #kontakt with header offset
+    document.querySelectorAll('a[href="#kontakt"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.getElementById('kontakt');
+            if (target) {
+                var headerHeight = document.querySelector('.header') ? document.querySelector('.header').offsetHeight : 0;
+                var targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+                window.scrollTo({ top: targetPos, behavior: 'smooth' });
+            }
+        });
+    });
+
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var origText = btn.textContent;
+        btn.textContent = 'Wird gesendet...';
+        btn.disabled = true;
+
+        var formData = new FormData(form);
+        // Add captcha answer from data attribute
+        formData.set('captcha_answer', form.getAttribute('data-captcha-answer'));
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/send-mail', true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                try {
+                    var resp = JSON.parse(xhr.responseText);
+                    if (resp.success) {
+                        window.location.href = '/danke';
+                    } else {
+                        alert(resp.message || 'Fehler beim Senden.');
+                        btn.textContent = origText;
+                        btn.disabled = false;
+                    }
+                } catch(ex) {
+                    alert('Fehler beim Senden. Bitte versuche es sp\u00e4ter.');
+                    btn.textContent = origText;
+                    btn.disabled = false;
+                }
+            } else {
+                alert('Serverfehler. Bitte versuche es sp\u00e4ter.');
+                btn.textContent = origText;
+                btn.disabled = false;
+            }
+        };
+        xhr.onerror = function() {
+            alert('Netzwerkfehler. Bitte versuche es sp\u00e4ter.');
+            btn.textContent = origText;
+            btn.disabled = false;
+        };
+        xhr.send(formData);
+    });
+
+    // Radio button highlight on click
+    var radios = form.querySelectorAll('input[name="angebot"]');
+    radios.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            radios.forEach(function(r) {
+                r.closest('label').style.borderColor = 'rgba(255,255,255,0.2)';
+            });
+            this.closest('label').style.borderColor = '#e74c3c';
+        });
+    });
+});
+</script>
+<?php if (isset($extraScripts)) echo $extraScripts; ?>
+
+</body>
+</html>

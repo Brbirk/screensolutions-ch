@@ -1,0 +1,68 @@
+<?php
+$pageTitle = 'Angebot - Unsere Dienstleistungen | screensolutions';
+$pageDescription = 'Unsere Angebote: Starter, Pro und Diamond. KI, Webdesign und Fotografie aus einer Hand.';
+$pageCanonical = 'https://screensolutions.ch/angebot';
+$activePage = 'angebot';
+include '_header.php';
+?>
+
+<section class="hero hero--sub">
+    <div class="hero__content">
+        <h1 class="hero__title">Unser Angebot</h1>
+        <p class="hero__subtitle">Wähle das passende Paket für dein Unternehmen – von der soliden Basis bis zur umfassenden Premium-Lösung.</p>
+    </div>
+</section>
+
+<section class="pricing">
+    <div class="pricing__grid">
+
+        <div class="pricing__card">
+            <h3 class="pricing__plan">Starter</h3>
+            <div class="pricing__price-wrap">
+                <span class="pricing__amount">CHF 390.-</span>
+                <span class="pricing__period">/ Monat</span>
+            </div>
+            <ul class="pricing__features">
+                <li><span class="pricing__check">&#10003;</span> Nutzung eines unserer KI Agentur-Models nach Wahl</li>
+                <li><span class="pricing__check">&#10003;</span> 6 Bilder / Monat für Social Media</li>
+                <li><span class="pricing__check">&#10003;</span> 6 Texte / Monat für Social Media</li>
+                <li><span class="pricing__check">&#10003;</span> 1 Website Blogpost mit Bild</li>
+            </ul>
+        </div>
+
+        <div class="pricing__card pricing__card--featured">
+            <div class="pricing__badge">Empfohlen</div>
+            <h3 class="pricing__plan">Pro</h3>
+            <div class="pricing__price-wrap">
+                <span class="pricing__amount">CHF 790.-</span>
+                <span class="pricing__period">/ Monat</span>
+            </div>
+            <ul class="pricing__features">
+                <li><span class="pricing__check">&#10003;</span> Nutzung eines unserer KI Agentur-Models nach Wahl</li>
+                <li><span class="pricing__check">&#10003;</span> 12 Bilder / Monat für Social Media</li>
+                <li><span class="pricing__check">&#10003;</span> 12 Texte / Monat für Social Media</li>
+                <li><span class="pricing__check">&#10003;</span> 1 Website Blogpost mit Bild</li>
+                <li><span class="pricing__check">&#10003;</span> 2 bewegte Bilder (Animationen)</li>
+            </ul>
+        </div>
+
+        <div class="pricing__card">
+            <h3 class="pricing__plan">Diamond</h3>
+            <div class="pricing__price-wrap">
+                <span class="pricing__amount">CHF 1200.-</span>
+                <span class="pricing__period">/ Monat</span>
+            </div>
+            <ul class="pricing__features">
+                <li><span class="pricing__check">&#10003;</span> Dein eigenes KI Agentur-Model (für deine Firma erstellt)</li>
+                <li><span class="pricing__check">&#10003;</span> 20 Bilder / Monat für Social Media</li>
+                <li><span class="pricing__check">&#10003;</span> 20 Texte / Monat für Social Media</li>
+                <li><span class="pricing__check">&#10003;</span> 2 Website Blogposts mit Bild</li>
+                <li><span class="pricing__check">&#10003;</span> 2 Bilder für die Website</li>
+                <li><span class="pricing__check">&#10003;</span> 4 bewegte Bilder (Animationen)</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<?php include '_footer.php'; ?>

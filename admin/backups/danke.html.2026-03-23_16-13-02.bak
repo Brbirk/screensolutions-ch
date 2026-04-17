@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vielen Dank! | screensolutions</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Vielen Dank für deine Nachricht. Wir melden uns innerhalb von 24 Stunden bei dir.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://screensolutions.ch/danke.html">
+
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <img src="images/logo-screensolutions-white-ki.png" alt="screensolutions – KI mit Wirkung">
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav__link nav__link--active">KI</a>
+        <a href="fotografie.html" class="nav__link">Fotografie</a>
+        <a href="webdesign.html" class="nav__link">Webdesign</a>
+        <a href="agentur.html" class="nav__link">Agentur</a>
+      </nav>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="thankyou-hero">
+    <div class="container">
+      <div class="thankyou-card">
+        <div class="thankyou-card__icon">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="40" fill="rgba(255,77,109,0.12)"/>
+            <circle cx="40" cy="40" r="30" fill="rgba(255,77,109,0.2)"/>
+            <path d="M28 40l8 8 16-16" stroke="#ff4d6d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="checkmark"/>
+          </svg>
+        </div>
+        <h1>Vielen Dank!</h1>
+        <p class="thankyou-card__text">Deine Nachricht wurde erfolgreich gesendet. Wir haben dir eine Bestätigung per E-Mail geschickt.</p>
+        <p class="thankyou-card__subtext">Wir melden uns in der Regel innerhalb von 24 Stunden bei dir.</p>
+        <a href="index.html" class="btn btn--primary">Zurück zur Startseite</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__canvas-wrap">
+      <canvas id="footer-wave-canvas"></canvas>
+    </div>
+    <div class="container footer__content">
+      <p class="footer__tagline">Visionen sichtbar machen</p>
+      <p class="footer__sub">Kreativität trifft Technologie – wir gestalten die visuelle Zukunft deiner Marke mit der Kraft künstlicher Intelligenz.</p>
+    </div>
+    <div class="footer__contact">
+      <div class="container">
+        <p>screensolutions gmbh<br>Hauptstrasse 15<br>9556 Affeltrangen</p>
+        <p class="footer__contact__tel">Tel: <a href="tel:+41763441794">076 344 17 94</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <style>
+    .thankyou-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 120px 20px 60px;
+    }
+    .thankyou-card {
+      text-align: center;
+      max-width: 550px;
+      margin: 0 auto;
+      animation: fadeInUp 0.8s ease;
+    }
+    .thankyou-card__icon {
+      margin-bottom: 2rem;
+    }
+    .thankyou-card__icon .checkmark {
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      animation: drawCheck 0.6s ease 0.4s forwards;
+    }
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .thankyou-card h1 {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .thankyou-card__text {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .thankyou-card__subtext {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    .thankyou-card .btn--primary {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+  </style>
+</body>
+</html>
