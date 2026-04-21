@@ -30,7 +30,7 @@ include '_header.php';
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           </div>
           <h3>Konzeptarbeit</h3>
-          <p>Das Konzept stellt sicher, dass es nicht nur Ihre Kunden, sondern auch Sie längerfristig glücklich macht, indem es die Antworten auf Fragen findet, wie der Auftritt auch morgen noch für Sie passt. Vielen Dank.</p>
+          <p>Das Konzept stellt sicher, dass es nicht nur Ihre Kunden, sondern auch Sie längerfristig glücklich macht, indem es die Antworten auf Fragen findet, wie der Auftritt auch morgen noch für Sie passt.</p>
         </div>
 
         <div class="service-card service-card--teal fade-in">
