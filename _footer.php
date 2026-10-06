@@ -5,6 +5,8 @@
         <h2 class="fade-in fade-in--hidden">Kontaktanfrage</h2>
         <?php if (isset($activePage) && $activePage === 'angebot'): ?>
         <p class="fade-in fade-in--hidden">Ich interessiere mich f&uuml;r folgendes Angebot:</p>
+        <?php elseif (isset($activePage) && $activePage === 'webdesign'): ?>
+        <p class="fade-in fade-in--hidden">Du brauchst eine neue Website oder m&ouml;chtest deine bestehende abgeben? Schreib uns kurz, was du vorhast &ndash; wir melden uns innert einem Werktag mit einem konkreten Vorschlag.</p>
         <?php else: ?>
         <p class="fade-in fade-in--hidden">Du m&ouml;chtest wissen, wie KI-generierter Content f&uuml;r dein Unternehmen aussehen k&ouml;nnte? Schreib uns &ndash; wir beraten dich unverbindlich und zeigen dir konkrete M&ouml;glichkeiten f&uuml;r deine Marke.</p>
         <?php endif; ?>
@@ -13,16 +15,20 @@
             <?php if (isset($activePage) && $activePage === 'angebot'): ?>
             <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
                 <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
-                    <input type="radio" name="angebot" value="Starter &ndash; CHF 390.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
-                    <span><strong style="color: #fff;">Starter</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 390.- / Monat</span></span>
+                    <input type="radio" name="angebot" value="Handwerk &ndash; CHF 89.- / Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Handwerk</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 89.- / Monat</span></span>
                 </label>
                 <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
-                    <input type="radio" name="angebot" value="Pro &ndash; CHF 790.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
-                    <span><strong style="color: #fff;">Pro</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 790.- / Monat</span></span>
+                    <input type="radio" name="angebot" value="Business &ndash; CHF 249.- / Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Business</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 249.- / Monat</span></span>
                 </label>
                 <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
-                    <input type="radio" name="angebot" value="Diamond &ndash; CHF 1200.-/Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
-                    <span><strong style="color: #fff;">Diamond</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 1200.- / Monat</span></span>
+                    <input type="radio" name="angebot" value="Premium &ndash; CHF 590.- / Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Premium</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">CHF 590.- / Monat</span></span>
+                </label>
+                <label style="flex: 1; min-width: 200px; padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.3s; background: rgba(255,255,255,0.05);">
+                    <input type="radio" name="angebot" value="Social-Media-Zusatz &ndash; ab CHF 390.- / Monat" style="accent-color: #e74c3c; width: 18px; height: 18px;">
+                    <span><strong style="color: #fff;">Social-Media-Zusatz</strong><br><span style="opacity: 0.7; font-size: 0.9rem;">ab CHF 390.- / Monat</span></span>
                 </label>
             </div>
             <?php endif; ?>
